@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
         <ul className="menu menu-horizontal">
           {links.map((link) => (
             <li key={link.href}>
-              <Link href={link.href} className="px-3">
+              <Link href={link.href as "/"} className="px-3">
                 {link.label}
               </Link>
             </li>
@@ -57,7 +57,7 @@ const Navbar: React.FC = () => {
       {/* Right links */}
       <div className="navbar-end">
         <SignedOut>
-          <SignInButton appearance={clerkAppearance} />
+          <SignInButton />
         </SignedOut>
         <SignedIn>
           <UserButton appearance={clerkAppearance} />
@@ -124,7 +124,9 @@ const Navbar: React.FC = () => {
               >
                 {links.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href}>{link.label}</Link>
+                    <Link href={link.href as "/"} className="px-3">
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
