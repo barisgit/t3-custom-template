@@ -1,13 +1,35 @@
 import React from "react";
 import { Link } from "~/i18n/routing";
 import ThemeSwitch from "~/app/_components/ThemeSwitch";
-import Image from "next/image";
+import LocaleSwitcher from "~/app/_components/LocaleSwitcher";
+
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 const links = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
+
+const clerkAppearance = {
+  elements: {
+    formButtonPrimary: "btn btn-primary",
+    card: "bg-base-100 shadow-xl p-4",
+    headerTitle: "text-2xl font-bold text-base-content",
+    headerSubtitle: "text-base-content/70",
+    socialButtonsBlockButton: "btn btn-outline gap-2 mb-2",
+    formFieldLabel: "text-base-content/70",
+    formFieldInput: "input input-bordered w-full",
+    footerActionLink: "link link-primary",
+    identityPreviewEditButton: "btn btn-ghost btn-xs",
+    avatarBox: "w-10 h-10",
+    userButtonPopoverCard: "bg-base-200 shadow-xl mt-2",
+    userButtonPopoverActions: "p-2",
+    userButtonPopoverActionButton: "btn btn-ghost justify-start w-full",
+    userPreviewMainIdentifier: "text-base-content font-semibold",
+    userPreviewSecondaryIdentifier: "text-base-content/70",
+  },
+};
 
 const Navbar: React.FC = () => {
   return (
@@ -34,8 +56,48 @@ const Navbar: React.FC = () => {
 
       {/* Right links */}
       <div className="navbar-end">
-        <div className="flex-none">
-          <ThemeSwitch />
+        <SignedOut>
+          <SignInButton appearance={clerkAppearance} />
+        </SignedOut>
+        <SignedIn>
+          <UserButton appearance={clerkAppearance} />
+        </SignedIn>
+
+        {/* Settings Dropdown */}
+        <div className="dropdown dropdown-end">
+          <div tabIndex={0} role="button" className="btn btn-circle btn-ghost">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-7 w-7"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+          </div>
+          <ul
+            tabIndex={0}
+            className="menu dropdown-content menu-sm rounded-box bg-base-100 z-[1] mt-3 w-52 p-2 shadow"
+          >
+            <li>
+              <ThemeSwitch size={28} />
+            </li>
+            <li>
+              <LocaleSwitcher />
+            </li>
+          </ul>
         </div>
         <div className="flex-none lg:hidden">
           <div className="flex items-center gap-2">
@@ -73,78 +135,6 @@ const Navbar: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* <div className="dropdown dropdown-end">
-          <div
-            tabIndex={0}
-            role="button"
-            className="avatar btn btn-circle btn-ghost"
-          >
-            <div className="w-10 rounded-full">
-              {session?.user.image ? (
-                <Image
-                  alt="Tailwind CSS Navbar component"
-                  src={session.user.image}
-                  width={100}
-                  height={100}
-                />
-              ) : session ? (
-                <Image
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                  width={100}
-                  height={100}
-                />
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="h-10 w-10"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              )}
-            </div>
-          </div>
-          {session ? (
-            <ul
-              tabIndex={0}
-              className="menu dropdown-content menu-sm rounded-box bg-base-100 z-[1] mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <Link href="/settings">Settings</Link>
-              </li>
-              <li>
-                <SignOutButton className="w-full text-left">
-                  Logout
-                </SignOutButton>
-              </li>
-            </ul>
-          ) : (
-            <ul
-              tabIndex={0}
-              className="menu dropdown-content menu-sm rounded-box bg-base-100 z-[1] mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <Link href="/auth/signin">Login</Link>
-              </li>
-              <li>
-                <Link href="/auth/new-user">Register</Link>
-              </li>
-            </ul>
-          )}
-        </div> */}
       </div>
     </nav>
   );
