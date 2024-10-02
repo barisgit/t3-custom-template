@@ -15,7 +15,7 @@ model Post {
     name      String
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
-    user      user?    @relation(fields: [userId], references: [id])
+    user      User?    @relation(fields: [userId], references: [id])
     userId    String?
 
     @@index([name])
@@ -27,7 +27,7 @@ enum Role {
     SUPER_ADMIN
 }
 
-model user {
+model User {
     id               String  @id @unique
     email            String  @unique
     stripeCustomerId String? @unique
