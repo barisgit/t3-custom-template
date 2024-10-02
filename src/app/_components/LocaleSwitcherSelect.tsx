@@ -32,6 +32,7 @@ export default function LocaleSwitcherSelect({
         { locale: nextLocale },
       );
     });
+    router.refresh();
   }
 
   return (
