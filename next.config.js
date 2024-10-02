@@ -4,7 +4,15 @@
  */
 await import("./src/env.js");
 
-/** @type {import("next").NextConfig} */
-const config = {};
+import createNextIntlPlugin from "next-intl/plugin";
 
-export default config;
+const withNextIntl = createNextIntlPlugin();
+
+/** @type {import("next").NextConfig} */
+const config = {
+  images: {
+    domains: ["cdn.discordapp.com", "img.daisyui.com"],
+  },
+};
+
+export default withNextIntl(config);

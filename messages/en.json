@@ -1,0 +1,42 @@
+{
+  "home": {
+    "welcomeMessage": "Welcome"
+  },
+  "Auth": {
+    "signIn": "Sign In",
+    "signInWith": "Sign in with {provider}",
+    "register": "Register",
+    "registerWith": "Register with {provider}",
+    "forgotPassword": "Forgot Password",
+    "resetPassword": "Reset Password",
+    "emailAddress": "Email Address",
+    "signUp": "Sign Up",
+    "signUpWith": "Sign up with {provider}"
+  },
+  "Settings": {
+    "title": "Settings",
+    "emailStatus": "Email Verification Status",
+    "emailVerified": "Your email is verified.",
+    "emailNotVerified": "Your email is not verified.",
+    "verifyEmail": "Verify Email",
+    "resendVerification": "Resend Verification Email",
+    "verificationEmailSent": "A verification email has been sent to your email address.",
+    "linkedAccounts": "Linked Accounts",
+    "unlink": "Unlink",
+    "confirmUnlink": "Are you sure you want to unlink this account?",
+    "noLinkedAccounts": "No linked accounts.",
+    "linkNewAccount": "Link a New Account",
+    "linkWith": "Link with",
+    "allProvidersLinked": "All available providers are linked."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "message": "Sorry, we couldn't find the page you're looking for.",
+    "returnHome": "Return to home page"
+  },
+  "AboutPage": {
+    "title": "About Us",
+    "description": "This is the about page.",
+    "backToHome": "Back to Home"
+  }
+}
