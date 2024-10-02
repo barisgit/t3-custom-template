@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useTransition } from "react";
 import clsx from "clsx";
 import { useParams } from "next/navigation";
-import { ChangeEvent, ReactNode, useTransition } from "react";
-import { Locale, usePathname, useRouter } from "~/i18n/routing";
+import type { ReactNode } from "react";
+import { usePathname, useRouter } from "~/i18n/routing";
+import type { Locale } from "~/i18n/routing";
 
 type Props = {
   children: ReactNode;
@@ -44,14 +45,20 @@ export default function LocaleSwitcherSelect({
       </span>
       <ul className="space-y-1">
         {React.Children.map(children, (child) => {
-          if (React.isValidElement(child)) {
+          if (
+            React.isValidElement<{
+              value: Locale;
+              children: React.ReactNode;
+            }>(child)
+          ) {
+            const childValue = child.props.value;
             return (
               <li>
                 <button
-                  onClick={() => onSelectChange(child.props.value as Locale)}
+                  onClick={() => onSelectChange(childValue)}
                   className={clsx(
                     "rounded-md px-3 py-1 text-sm transition-colors",
-                    child.props.value === defaultValue
+                    childValue === defaultValue
                       ? "bg-primary text-primary-content"
                       : "bg-base-200 hover:bg-base-300",
                   )}
