@@ -6,12 +6,20 @@ await import("./src/env.js");
 
 import createNextIntlPlugin from "next-intl/plugin";
 
-const withNextIntl = createNextIntlPlugin();
+const withNextIntl = createNextIntlPlugin("./src/i18n/i18n.ts");
 
 /** @type {import("next").NextConfig} */
 const config = {
   images: {
     domains: ["cdn.discordapp.com", "img.daisyui.com"],
+  },
+  eslint: {
+    dirs: ["."],
+  },
+  poweredByHeader: false,
+  reactStrictMode: true,
+  experimental: {
+    serverComponentsExternalPackages: ["@electric-sql/pglite"],
   },
 };
 

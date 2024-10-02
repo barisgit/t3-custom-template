@@ -6,7 +6,6 @@ import { dark } from "@clerk/themes";
 import { useLocale } from "next-intl";
 import { useSelector } from "react-redux";
 import type { RootState } from "~/redux/store";
-import daisyuiColors from "daisyui/src/theming/themes";
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const theme = useSelector((state: RootState) => state.theme.theme);
