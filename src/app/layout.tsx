@@ -4,7 +4,7 @@ import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import { Providers } from "./context/reduxProvider";
+import { Providers } from "./_context/reduxProvider";
 
 import { TRPCReactProvider } from "~/trpc/react";
 

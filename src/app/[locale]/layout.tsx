@@ -1,5 +1,5 @@
 import Navbar from "~/app/_components/Navbar";
-import { AuthProvider } from "~/app/context/clerkProvider";
+import { AuthProvider } from "~/app/_context/clerkProvider";
 export default function LocaleLayout({
   children,
 }: {
