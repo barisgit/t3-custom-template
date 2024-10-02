@@ -1,44 +1,31 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { themeChange } from "theme-change";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "~/redux/themeSlice";
+import type { RootState } from "~/redux/store";
 
 const ThemeSwitch = ({ size = 24 }) => {
-  const [theme, setTheme] = useState<string | null>(null);
+  const dispatch = useDispatch();
+  const theme = useSelector((state: RootState) => state.theme.theme);
 
   useEffect(() => {
-    // Initialize theme from localStorage or system preference
-    const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-    const initialTheme = savedTheme ?? (prefersDark ? "dark" : "light");
-    setTheme(initialTheme);
-    document.documentElement.setAttribute("data-theme", initialTheme);
-  }, []);
-
-  useEffect(() => {
-    themeChange(false);
-    // Update localStorage and document attribute when theme changes
+    // Apply the theme to the document
     if (theme) {
-      localStorage.setItem("theme", theme);
       document.documentElement.setAttribute("data-theme", theme);
     }
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  const handleToggleTheme = () => {
+    dispatch(toggleTheme());
   };
-
-  // Don't render until we know the initial theme
-  if (theme === null) return null;
 
   return (
     <label className="btn btn-circle btn-ghost swap swap-rotate">
       <input
         type="checkbox"
         className="theme-controller"
-        onChange={toggleTheme}
+        onChange={handleToggleTheme}
         checked={theme === "dark"}
       />
 

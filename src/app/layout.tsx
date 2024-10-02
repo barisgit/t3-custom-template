@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import { Providers } from "./context/reduxProvider";
 
 import { TRPCReactProvider } from "~/trpc/react";
 
@@ -24,11 +25,15 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} className={`${GeistSans.variable}`}>
-      <TRPCReactProvider>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
-      </TRPCReactProvider>
+      <body>
+        <Providers>
+          <TRPCReactProvider>
+            <NextIntlClientProvider messages={messages}>
+              {children}
+            </NextIntlClientProvider>
+          </TRPCReactProvider>
+        </Providers>
+      </body>
     </html>
   );
 }
