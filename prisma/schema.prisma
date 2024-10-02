@@ -27,15 +27,29 @@ enum Role {
     SUPER_ADMIN
 }
 
+model Address {
+    id      Int     @id @default(autoincrement())
+    street  String
+    city    String
+    zipCode String
+    state   String?
+    country String
+    User    User[]
+}
+
 model User {
     id               String  @id @unique
     email            String  @unique
+    phoneNumber      String?
     stripeCustomerId String? @unique
     firstName        String
     lastName         String
     profileImageUrl  String?
 
-    Posts Post[]
+    address   Address? @relation(fields: [addressId], references: [id])
+    addressId Int?
+
+    posts Post[]
 
     role         Role      @default(USER)
     isPremium    Boolean   @default(false)
