@@ -1,12 +1,16 @@
-import { getTranslations } from "next-intl/server";
-import { Link } from "~/i18n/routing";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
-export default async function Home() {
+export default async function Home({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  unstable_setRequestLocale(locale);
   const t = await getTranslations();
 
   return (
-    <div className="flex items-center justify-center">
-      <h1 className="from-primary to-secondary bg-gradient-to-r bg-clip-text text-6xl font-bold text-transparent">
+    <div className="-mt-24 flex min-h-screen items-center justify-center">
+      <h1 className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-6xl font-bold text-transparent">
         {t("home.welcomeMessage")}
       </h1>
     </div>
