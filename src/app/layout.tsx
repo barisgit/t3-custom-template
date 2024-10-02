@@ -24,13 +24,11 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} className={`${GeistSans.variable}`}>
-      <body>
-        <TRPCReactProvider>
-          <NextIntlClientProvider messages={messages}>
-            {children}
-          </NextIntlClientProvider>
-        </TRPCReactProvider>
-      </body>
+      <TRPCReactProvider>
+        <NextIntlClientProvider messages={messages}>
+          {children}
+        </NextIntlClientProvider>
+      </TRPCReactProvider>
     </html>
   );
 }

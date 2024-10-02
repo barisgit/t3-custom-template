@@ -87,17 +87,13 @@ const Navbar: React.FC = () => {
               />
             </svg>
           </div>
-          <ul
+          <div
             tabIndex={0}
-            className="menu dropdown-content menu-sm rounded-box bg-base-100 z-[1] mt-3 w-52 p-2 shadow"
+            className="w-35 menu dropdown-content menu-sm z-[1] mt-3 flex flex-col rounded-box bg-base-100 p-2 shadow"
           >
-            <li>
-              <ThemeSwitch size={28} />
-            </li>
-            <li>
-              <LocaleSwitcher />
-            </li>
-          </ul>
+            <ThemeSwitch size={28} />
+            <LocaleSwitcher />
+          </div>
         </div>
         <div className="flex-none lg:hidden">
           <div className="flex items-center gap-2">
@@ -124,7 +120,7 @@ const Navbar: React.FC = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu dropdown-content menu-sm rounded-box bg-base-100 z-[1] mt-3 w-52 p-2 shadow"
+                className="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow"
               >
                 {links.map((link) => (
                   <li key={link.href}>
