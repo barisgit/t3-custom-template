@@ -1,4 +1,8 @@
 {
+  "LocaleSwitcher": {
+    "label": "Language",
+    "locale": "{locale, select, en {English} de {German} other {Unknown}}"
+  },
   "home": {
     "welcomeMessage": "Welcome"
   },

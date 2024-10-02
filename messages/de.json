@@ -1,0 +1,46 @@
+{
+  "LocaleSwitcher": {
+    "label": "Sprache",
+    "locale": "{locale, select, en {Englisch} de {Deutsch} other {Unbekannt}}"
+  },
+  "home": {
+    "welcomeMessage": "Willkommen"
+  },
+  "Auth": {
+    "signIn": "Anmelden",
+    "signInWith": "Anmelden mit {provider}",
+    "register": "Registrieren",
+    "registerWith": "Registrieren mit {provider}",
+    "forgotPassword": "Passwort vergessen",
+    "resetPassword": "Passwort zurücksetzen",
+    "emailAddress": "E-Mail-Adresse",
+    "signUp": "Registrieren",
+    "signUpWith": "Registrieren mit {provider}"
+  },
+  "Settings": {
+    "title": "Einstellungen",
+    "emailStatus": "E-Mail-Verifizierungsstatus",
+    "emailVerified": "Ihre E-Mail-Adresse ist verifiziert.",
+    "emailNotVerified": "Ihre E-Mail-Adresse ist nicht verifiziert.",
+    "verifyEmail": "E-Mail verifizieren",
+    "resendVerification": "Verifizierungs-E-Mail erneut senden",
+    "verificationEmailSent": "Eine Verifizierungs-E-Mail wurde an Ihre E-Mail-Adresse gesendet.",
+    "linkedAccounts": "Verknüpfte Konten",
+    "unlink": "Verknüpfung aufheben",
+    "confirmUnlink": "Sind Sie sicher, dass Sie die Verknüpfung dieses Kontos aufheben möchten?",
+    "noLinkedAccounts": "Keine verknüpften Konten.",
+    "linkNewAccount": "Neues Konto verknüpfen",
+    "linkWith": "Verknüpfen mit",
+    "allProvidersLinked": "Alle verfügbaren Anbieter sind verknüpft."
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "message": "Entschuldigung, wir konnten die gesuchte Seite nicht finden.",
+    "returnHome": "Zurück zur Startseite"
+  },
+  "AboutPage": {
+    "title": "Über uns",
+    "description": "Dies ist die Über-uns-Seite.",
+    "backToHome": "Zurück zur Startseite"
+  }
+}
