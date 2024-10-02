@@ -1,17 +1,14 @@
 import Navbar from "~/app/_components/Navbar";
-import { ClerkProvider } from "@clerk/nextjs";
-
+import { AuthProvider } from "~/app/context/clerkProvider";
 export default function LocaleLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
-      <body>
-        <Navbar />
-        {children}
-      </body>
-    </ClerkProvider>
+    <AuthProvider>
+      <Navbar />
+      {children}
+    </AuthProvider>
   );
 }

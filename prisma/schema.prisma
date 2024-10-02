@@ -18,3 +18,14 @@ model Post {
 
     @@index([name])
 }
+
+model User {
+    id        String   @id @default(cuid())
+    clerkId   String   @unique
+    email     String   @unique
+    firstName String?
+    lastName  String?
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    // Add any additional fields you need
+}
