@@ -30,7 +30,7 @@ export async function POST(req: Request) {
   }
 
   // Get the body
-  const payload = await req.json();
+  const payload: unknown = await req.json();
   const body = JSON.stringify(payload);
 
   // Create a new Svix instance with your secret.
@@ -57,96 +57,86 @@ export async function POST(req: Request) {
   switch (eventType) {
     case "user.created":
       const { id } = evt.data;
-      let {
+      const {
         id: userId,
         first_name,
         last_name,
         image_url,
         email_addresses,
-      } = payload.data;
+      } = evt.data;
 
       const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-        apiVersion: "2023-10-16",
+        apiVersion: "2024-09-30.acacia",
       });
 
-      const stripe_customer = await stripe.customers
-        .create({
-          email: email_addresses[0].email_address,
-          name: `${first_name} ${last_name}`,
-          metadata: {
-            clerkId: userId,
-          },
-        })
-        .then((customer) => {
-          return customer;
-        });
+      const stripe_customer = await stripe.customers.create({
+        email: email_addresses[0]?.email_address,
+        name: `${first_name ?? ""} ${last_name ?? ""}`.trim(),
+        metadata: {
+          clerkId: userId,
+        },
+      });
 
-      let user = db.user
-        .create({
-          data: {
-            id: userId,
-            firstName: first_name ?? " ",
-            lastName: last_name ?? " ",
-            profileImageUrl: image_url,
-            email: email_addresses[0].email_address,
-            stripeCustomerId: stripe_customer.id,
-          },
-        })
-        .then((user) => {
-          console.log(user);
-        });
+      await db.user.create({
+        data: {
+          id: userId,
+          firstName: first_name ?? "",
+          lastName: last_name ?? "",
+          profileImageUrl: image_url ?? "",
+          email: email_addresses[0]?.email_address ?? "",
+          stripeCustomerId: stripe_customer.id,
+        },
+      });
 
-      console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
+      console.log(`Webhook with an ID of ${id} and type of ${eventType}`);
       console.log(
-        `User with an ID of ${userId} and name of ${first_name} ${last_name}`,
+        `User with an ID of ${userId} and name of ${first_name ?? ""} ${last_name ?? ""}`,
       );
       break;
 
     case "user.updated":
       const { id: u_id } = evt.data;
 
-      let {
+      const {
         id: u_userId,
         first_name: u_first_name,
         last_name: u_last_name,
         image_url: u_profile_image_url,
-        email_addresses: u_email_addresse,
-      } = payload.data;
+        email_addresses: u_email_addresses,
+      } = evt.data;
 
-      let u_user = await db.user.update({
+      await db.user.update({
         where: {
           id: u_userId,
         },
         data: {
-          firstName: u_first_name,
-          lastName: u_last_name,
-          profileImageUrl: u_profile_image_url,
-          email: u_email_addresse[0].email_address,
+          firstName: u_first_name ?? "",
+          lastName: u_last_name ?? "",
+          profileImageUrl: u_profile_image_url ?? "",
+          email: u_email_addresses[0]?.email_address ?? "",
         },
       });
 
-      console.log(`Webhook with and ID of ${u_id} and type of ${eventType}`);
+      console.log(`Webhook with an ID of ${u_id} and type of ${eventType}`);
       break;
 
     case "user.deleted":
       const { id: d_id } = evt.data;
 
-      let { id: d_userId } = payload.data;
+      const { id: d_userId } = evt.data;
 
-      let d_user = await db.user.delete({
+      await db.user.delete({
         where: {
           id: d_userId,
         },
       });
-      console.log(`Webhook with and ID of ${d_id} and type of ${eventType}`);
+      console.log(`Webhook with an ID of ${d_id} and type of ${eventType}`);
       console.log(`User with an ID of ${d_userId} was deleted`);
       break;
 
     default:
-      console.log(
-        `Webhook with and ID of [NotValued] and type of ${eventType}`,
-      );
-      return new Response("Error occured", {
+      console.log(`Webhook with an ID of [NotValued] and type of ${eventType}`);
+      return new Response("Error occurred", {
         status: 400,
       });
   }
