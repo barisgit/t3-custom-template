@@ -57,6 +57,7 @@
     "tryAgain": "Try again"
   },
   "about": {
-    "superAdminDashboard": "Super Admin Dashboard"
+    "superAdminDashboard": "Super Admin Dashboard",
+    "hello": "Hello {role, select, SUPER_ADMIN {Super Admin} ADMIN {Admin} USER {User} other {Guest}}"
   }
 }
