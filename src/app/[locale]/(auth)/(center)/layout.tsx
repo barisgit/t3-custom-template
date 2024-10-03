@@ -1,7 +1,11 @@
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
-export default function CenteredLayout(props: { children: React.ReactNode }) {
+export default function CenteredLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const { userId } = auth();
 
   if (userId) {
@@ -10,7 +14,7 @@ export default function CenteredLayout(props: { children: React.ReactNode }) {
 
   return (
     <div className="-mt-8 flex min-h-screen items-center justify-center sm:-mt-24">
-      {props.children}
+      {children}
     </div>
   );
 }

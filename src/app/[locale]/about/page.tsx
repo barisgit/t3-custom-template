@@ -12,7 +12,9 @@ export default async function About({
   const { userId } = auth();
 
   if (!userId) {
-    redirect(`/${locale}/sign-in`); // Redirect unauthenticated users to login page
+    // Redirect unauthenticated users to login page with callback URL
+    const callbackUrl = encodeURIComponent(`/${locale}/about`);
+    redirect(`/${locale}/sign-in?redirect_url=${callbackUrl}`);
   }
 
   const { db } = await import("~/server/db");

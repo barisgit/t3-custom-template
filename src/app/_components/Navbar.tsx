@@ -37,16 +37,16 @@ const clerkAppearance = {
 const Navbar: React.FC = () => {
   return (
     <nav className="bg-background-default dark:bg-dark-background-default shadow-elevation-1 px-4 py-2">
-      <div className="container mx-auto flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex-shrink-0">
+      <div className="container mx-auto flex items-center">
+        {/* Logo (Left column) */}
+        <div className="flex-1">
           <Link href="/" className="text-text-primary text-xl font-bold">
             Logo
           </Link>
         </div>
 
         {/* Center links (desktop) */}
-        <div className="ml-10 hidden flex-grow justify-center lg:flex">
+        <div className="hidden flex-1 justify-center lg:flex">
           <ul className="flex space-x-4">
             {links.map((link) => (
               <li key={link.href}>
@@ -61,29 +61,21 @@ const Navbar: React.FC = () => {
           </ul>
         </div>
 
-        {/* Right links */}
-        <div className="flex items-center space-x-4">
-          <ul className="hidden lg:flex">
-            <li>
-              <SignedOut>
-                <SignInButton mode="modal">
-                  <button className="hover:bg-primary-600 bg-primary rounded px-4 py-2 text-white">
-                    Sign In
-                  </button>
-                </SignInButton>
-              </SignedOut>
-            </li>
-            <li>
-              <SignedIn>
-                <UserButton appearance={clerkAppearance} />
-              </SignedIn>
-            </li>
+        {/* Right column */}
+        <div className="flex flex-1 items-center justify-end space-x-4">
+          <SignedOut>
+            <SignInButton mode="modal">
+              <button className="hover:bg-primary-600 bg-primary rounded px-4 py-2 text-white">
+                Sign In
+              </button>
+            </SignInButton>
+          </SignedOut>
+          <SignedIn>
+            <UserButton appearance={clerkAppearance} />
+          </SignedIn>
 
-            {/* Settings Dropdown */}
-            <li>
-              <SettingsDropdown />
-            </li>
-          </ul>
+          {/* Settings Dropdown */}
+          <SettingsDropdown />
 
           {/* Client-side mobile menu */}
           <ClientNavbar links={links} clerkAppearance={clerkAppearance} />

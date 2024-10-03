@@ -1,14 +1,14 @@
 import { unstable_setRequestLocale } from "next-intl/server";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Link } from "~/i18n/routing";
 
-export default function Unauthorized({
+export default async function Unauthorized({
   params: { locale },
 }: {
   params: { locale: string };
 }) {
   unstable_setRequestLocale(locale);
-  const t = useTranslations("unauthorized");
+  const t = await getTranslations("unauthorized");
 
   return (
     <div className="-mt-24 flex min-h-screen flex-col items-center justify-center">

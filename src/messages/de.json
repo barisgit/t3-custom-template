@@ -3,35 +3,16 @@
     "label": "Sprache",
     "locale": "{locale, select, en {Englisch} de {Deutsch} other {Unbekannt}}"
   },
+  "SettingsDropdown": {
+    "theme": "Thema",
+    "language": "Sprache",
+    "settings": "Einstellungen"
+  },
+  "ThemeSwitch": {
+    "theme": "Thema"
+  },
   "home": {
     "welcomeMessage": "Willkommen"
-  },
-  "Auth": {
-    "signIn": "Anmelden",
-    "signInWith": "Anmelden mit {provider}",
-    "register": "Registrieren",
-    "registerWith": "Registrieren mit {provider}",
-    "forgotPassword": "Passwort vergessen",
-    "resetPassword": "Passwort zurücksetzen",
-    "emailAddress": "E-Mail-Adresse",
-    "signUp": "Registrieren",
-    "signUpWith": "Registrieren mit {provider}"
-  },
-  "Settings": {
-    "title": "Einstellungen",
-    "emailStatus": "E-Mail-Verifizierungsstatus",
-    "emailVerified": "Ihre E-Mail-Adresse ist verifiziert.",
-    "emailNotVerified": "Ihre E-Mail-Adresse ist nicht verifiziert.",
-    "verifyEmail": "E-Mail verifizieren",
-    "resendVerification": "Verifizierungs-E-Mail erneut senden",
-    "verificationEmailSent": "Eine Verifizierungs-E-Mail wurde an Ihre E-Mail-Adresse gesendet.",
-    "linkedAccounts": "Verknüpfte Konten",
-    "unlink": "Verknüpfung aufheben",
-    "confirmUnlink": "Sind Sie sicher, dass Sie die Verknüpfung dieses Kontos aufheben möchten?",
-    "noLinkedAccounts": "Keine verknüpften Konten.",
-    "linkNewAccount": "Neues Konto verknüpfen",
-    "linkWith": "Verknüpfen mit",
-    "allProvidersLinked": "Alle verfügbaren Anbieter sind verknüpft."
   },
   "notFound": {
     "title": "Seite nicht gefunden",
@@ -42,5 +23,31 @@
     "title": "Über uns",
     "description": "Dies ist die Über-uns-Seite.",
     "backToHome": "Zurück zur Startseite"
+  },
+  "unauthorized": {
+    "title": "Unbefugter Zugriff",
+    "message": "Sie haben keine Berechtigung, auf diese Seite zuzugreifen.",
+    "returnHome": "Zurück zur Startseite"
+  },
+  "loading": {
+    "message": "Laden"
+  },
+  "error": {
+    "title": "Fehler",
+    "message": "Ein unerwarteter Fehler ist aufgetreten",
+    "tryAgain": "Erneut versuchen"
+  },
+  "about": {
+    "superAdminDashboard": "Super-Admin-Dashboard",
+    "hello": "Hallo {role, select, SUPER_ADMIN {Super-Admin} ADMIN {Admin} USER {Benutzer} other {Gast}}",
+    "unauthorized": "Nicht autorisiert, bitte melden Sie sich an!"
+  },
+  "SignIn": {
+    "meta_title": "Anmelden",
+    "meta_description": "Anmelden Seite"
+  },
+  "SignUp": {
+    "meta_title": "Registrieren",
+    "meta_description": "Registrieren Seite"
   }
 }
