@@ -14,9 +14,7 @@ import { db } from "~/server/db";
 import { type Role } from "@prisma/client";
 import { type User } from "~/types/global";
 
-type AuthObject = {
-  user: User | null;
-};
+import { env } from "~/env.js";
 
 /**
  * 1. CONTEXT
@@ -148,6 +146,18 @@ const enforceUserHasRole = (allowedRoles: Role | Role[]) => {
         code: "FORBIDDEN",
         message: "You do not have the required role to perform this action.",
       });
+    }
+
+    if (ctx.user.role === "SUPER_ADMIN") {
+      const allowedEmails = env.SUPER_ADMIN_EMAILS.split(",").map((email) =>
+        email.trim(),
+      );
+      if (!allowedEmails.includes(ctx.user.email)) {
+        throw new TRPCError({
+          code: "FORBIDDEN",
+          message: "Your email is not authorized for SUPER_ADMIN access.",
+        });
+      }
     }
 
     return next({
