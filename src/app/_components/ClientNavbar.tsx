@@ -13,10 +13,11 @@ import {
 import { useTranslations } from "next-intl";
 import ThemeSwitch from "~/app/_components/ThemeSwitch";
 import LocaleSwitcher from "~/app/_components/LocaleSwitcher";
+import type { Appearance } from "~/types/global";
 
 interface ClientNavbarProps {
   links: { href: string; label: string }[];
-  clerkAppearance: any; // Add this prop
+  clerkAppearance: Appearance;
 }
 
 const ClientNavbar: React.FC<ClientNavbarProps> = ({
