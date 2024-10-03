@@ -117,10 +117,10 @@
   --color-light-background-dark: #cbbecf; /* Light desaturated purple */
   --color-light-text-primary: #190c28; /* Very dark purple */
   --color-light-text-secondary: #2b1245; /* Dark purple */
-  --color-light-text-accent: #ff56ffb1; /* Neon magenta */
-  --color-light-border-default: #b366ff; /* Medium light purple */
-  --color-light-border-light: #d9b3ff; /* Very light purple */
-  --color-light-border-dark: #8000ff; /* Bright purple */
+  --color-light-text-accent: #ff56ffa0; /* Slightly muted neon magenta */
+  --color-light-border-default: #a699cc; /* Less saturated medium light purple */
+  --color-light-border-light: #ccc2e6; /* Less saturated very light purple */
+  --color-light-border-dark: #7a66b3; /* Less saturated bright purple */
 
   --color-dark-background-default: #1e1d21; /* Very dark purple */
   --color-dark-background-paper: #2e2c32; /* Lighter desaturated dark purple */
@@ -132,9 +132,9 @@
   --color-dark-text-primary: #ffffff; /* White */
   --color-dark-text-secondary: #f2dafd; /* Very light purple */
   --color-dark-text-accent: #00ffff; /* Neon cyan */
-  --color-dark-border-default: #3d007a; /* Medium dark purple */
-  --color-dark-border-light: #4b0099; /* Medium purple */
-  --color-dark-border-dark: #330066; /* Dark purple */
+  --color-dark-border-default: #4a3d5f; /* Less saturated medium dark purple */
+  --color-dark-border-light: #5a4b70; /* Less saturated medium purple */
+  --color-dark-border-dark: #3a334d; /* Less saturated dark purple */
 }
 
 /* Dashboard theme */
