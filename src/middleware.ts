@@ -16,7 +16,15 @@ const isProtectedRoute = createRouteMatcher([
   "/:locale/dashboard(.*)",
 ]);
 
+const ignoredRoutes = ["/api/clerk(.*)", "/api/stripe/webhooks(.*)"];
+
 export default clerkMiddleware((auth: ClerkMiddlewareAuth, req, evt) => {
+  if (
+    ignoredRoutes.some((route) => new RegExp(route).test(req.nextUrl.pathname))
+  ) {
+    return NextResponse.next();
+  }
+
   const intlResponse = intlMiddleware(req);
   if (intlResponse) return intlResponse;
 
