@@ -8,6 +8,7 @@ import { unstable_setRequestLocale } from "next-intl/server";
 import { AppConfig } from "~/utils/AppConfig";
 import { Providers } from "~/app/_context/reduxProvider";
 import { TRPCReactProvider } from "~/trpc/react";
+import { ThemeInitializer } from "~/app/_components/ThemeInitializer";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -42,6 +43,7 @@ export default function RootLayout(props: {
                 locale={props.params.locale}
                 messages={messages}
               >
+                <ThemeInitializer />
                 <Navbar />
                 {props.children}
               </NextIntlClientProvider>
