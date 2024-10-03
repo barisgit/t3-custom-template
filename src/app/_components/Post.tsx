@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { api } from "~/trpc/react";
 import { useRouter } from "next/navigation";
+import { Input } from "~/components/ui/input";
+import { Button } from "~/components/ui/button";
 
 export function LatestPost() {
   const [latestPost] = api.post.getLatest.useSuspenseQuery();
@@ -42,7 +44,7 @@ export function LatestPost() {
         }}
         className="flex flex-col gap-2"
       >
-        <input
+        <Input
           type="text"
           placeholder="Post name"
           value={name}
@@ -50,13 +52,9 @@ export function LatestPost() {
           className="input input-bordered w-full"
         />
         {error && <p className="mt-2 text-sm text-red-500">{error}</p>}
-        <button
-          type="submit"
-          className="btn btn-primary"
-          disabled={createPost.isPending}
-        >
+        <Button type="submit" disabled={createPost.isPending}>
           {createPost.isPending ? "Creating..." : "Create Post"}
-        </button>
+        </Button>
       </form>
     </div>
   );
