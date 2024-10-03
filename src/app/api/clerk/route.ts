@@ -11,8 +11,14 @@ export async function POST(req: Request) {
   const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
 
   if (!WEBHOOK_SECRET) {
-    throw new Error(
+    console.error(
       "Please add WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local",
+    );
+    return new Response(
+      "Please add WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local",
+      {
+        status: 500,
+      },
     );
   }
 
@@ -24,6 +30,7 @@ export async function POST(req: Request) {
 
   // If there are no headers, error out
   if (!svix_id || !svix_timestamp || !svix_signature) {
+    console.error("Error occured -- no svix headers");
     return new Response("Error occured -- no svix headers", {
       status: 400,
     });
@@ -65,17 +72,17 @@ export async function POST(req: Request) {
         email_addresses,
       } = evt.data;
 
-      const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-        apiVersion: "2024-09-30.acacia",
-      });
+      // const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+      //   apiVersion: "2024-09-30.acacia",
+      // });
 
-      const stripe_customer = await stripe.customers.create({
-        email: email_addresses[0]?.email_address,
-        name: `${first_name ?? ""} ${last_name ?? ""}`.trim(),
-        metadata: {
-          clerkId: userId,
-        },
-      });
+      // const stripe_customer = await stripe.customers.create({
+      //   email: email_addresses[0]?.email_address,
+      //   name: `${first_name ?? ""} ${last_name ?? ""}`.trim(),
+      //   metadata: {
+      //     clerkId: userId,
+      //   },
+      // });
 
       await db.user.create({
         data: {
@@ -84,7 +91,7 @@ export async function POST(req: Request) {
           lastName: last_name ?? "",
           profileImageUrl: image_url ?? "",
           email: email_addresses[0]?.email_address ?? "",
-          stripeCustomerId: stripe_customer.id,
+          //stripeCustomerId: stripe_customer.id,
         },
       });
 
