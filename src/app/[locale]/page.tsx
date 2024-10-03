@@ -1,5 +1,4 @@
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
-
 export default async function Home({
   params: { locale },
 }: {
