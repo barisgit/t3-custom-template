@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Center links (desktop) */}
-        <div className="hidden flex-1 justify-center lg:flex">
+        <div className="hidden flex-1 justify-center sm:flex">
           <ul className="flex space-x-4">
             {links.map((link) => (
               <li key={link.href}>
@@ -63,19 +63,21 @@ const Navbar: React.FC = () => {
 
         {/* Right column */}
         <div className="flex flex-1 items-center justify-end space-x-4">
-          <SignedOut>
-            <SignInButton mode="modal">
-              <button className="hover:bg-primary-600 bg-primary rounded px-4 py-2 text-white">
-                Sign In
-              </button>
-            </SignInButton>
-          </SignedOut>
-          <SignedIn>
-            <UserButton appearance={clerkAppearance} />
-          </SignedIn>
+          <div className="hidden sm:flex">
+            <SignedOut>
+              <SignInButton mode="modal">
+                <button className="hover:bg-primary-600 bg-primary rounded px-4 py-2 text-white">
+                  Sign In
+                </button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton appearance={clerkAppearance} />
+            </SignedIn>
 
-          {/* Settings Dropdown */}
-          <SettingsDropdown />
+            {/* Settings Dropdown */}
+            <SettingsDropdown />
+          </div>
 
           {/* Client-side mobile menu */}
           <ClientNavbar links={links} clerkAppearance={clerkAppearance} />

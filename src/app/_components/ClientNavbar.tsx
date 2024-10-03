@@ -36,7 +36,7 @@ const ClientNavbar: React.FC<ClientNavbarProps> = ({
     <>
       {/* Mobile menu button */}
       <button
-        className="text-text-primary hover:bg-background-level1 rounded-full p-2 lg:hidden"
+        className="text-text-primary hover:bg-background-level1 rounded-full p-2 sm:hidden"
         onClick={toggleSidebar}
       >
         <svg
@@ -65,7 +65,7 @@ const ClientNavbar: React.FC<ClientNavbarProps> = ({
           ></div>
 
           {/* Sidebar */}
-          <div className="bg-background-paper fixed inset-y-0 right-0 w-52 shadow-lg transition-transform duration-300 ease-in-out">
+          <div className="bg-background-paper fixed inset-y-0 right-0 w-64 shadow-lg transition-transform duration-300 ease-in-out">
             <div className="flex h-full flex-col justify-between">
               <div className="px-4 py-6">
                 <div className="mb-4 flex items-center justify-between">
