@@ -25,11 +25,10 @@ export default async function About({
   const t = await getTranslations("about");
 
   void api.post.getLatest.prefetch();
-
   return (
     <HydrateClient>
       <div>
-        <h1 className="mb-6 text-center text-4xl font-bold text-primary">
+        <h1 className="text-primary mb-6 text-center text-4xl font-bold">
           {t("hello", { role: user?.role })}
         </h1>
         <LatestPost />

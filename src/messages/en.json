@@ -3,6 +3,14 @@
     "label": "Language",
     "locale": "{locale, select, en {English} de {German} other {Unknown}}"
   },
+  "SettingsDropdown": {
+    "theme": "Theme",
+    "language": "Language",
+    "settings": "Settings"
+  },
+  "ThemeSwitch": {
+    "theme": "Theme"
+  },
   "home": {
     "welcomeMessage": "Welcome"
   },

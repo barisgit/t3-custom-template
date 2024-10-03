@@ -1,4 +1,5 @@
 import "~/styles/globals.css";
+import "~/styles/themes.css";
 
 import Navbar from "~/app/_components/Navbar";
 import { AuthProvider } from "~/app/_context/clerkProvider";
@@ -7,6 +8,7 @@ import { unstable_setRequestLocale } from "next-intl/server";
 import { AppConfig } from "~/utils/AppConfig";
 import { Providers } from "~/app/_context/reduxProvider";
 import { TRPCReactProvider } from "~/trpc/react";
+import { ThemeInitializer } from "~/app/_components/ThemeInitializer";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -29,7 +31,10 @@ export default function RootLayout(props: {
   const messages = useMessages();
 
   return (
-    <html lang={props.params.locale}>
+    <html
+      lang={props.params.locale}
+      className="bg-background-default text-text-primary"
+    >
       <body>
         <Providers>
           <TRPCReactProvider>
@@ -38,6 +43,7 @@ export default function RootLayout(props: {
                 locale={props.params.locale}
                 messages={messages}
               >
+                <ThemeInitializer />
                 <Navbar />
                 {props.children}
               </NextIntlClientProvider>
