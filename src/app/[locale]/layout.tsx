@@ -1,4 +1,5 @@
 import "~/styles/globals.css";
+import "~/styles/themes.css";
 
 import Navbar from "~/app/_components/Navbar";
 import { AuthProvider } from "~/app/_context/clerkProvider";
@@ -29,7 +30,10 @@ export default function RootLayout(props: {
   const messages = useMessages();
 
   return (
-    <html lang={props.params.locale}>
+    <html
+      lang={props.params.locale}
+      className="bg-background-default text-text-primary"
+    >
       <body>
         <Providers>
           <TRPCReactProvider>
