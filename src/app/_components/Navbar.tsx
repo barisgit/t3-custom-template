@@ -97,39 +97,45 @@ const Navbar: React.FC = () => {
         </div>
         <div className="flex-none lg:hidden">
           <div className="flex items-center gap-2">
-            <div className="dropdown dropdown-end">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-circle btn-ghost"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+            <div className="drawer drawer-end">
+              <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+              <div className="drawer-content">
+                <label
+                  htmlFor="my-drawer"
+                  className="btn btn-circle btn-ghost drawer-button"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h8m-8 6h16"
-                  />
-                </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M4 6h16M4 12h8m-8 6h16"
+                    />
+                  </svg>
+                </label>
               </div>
-              <ul
-                tabIndex={0}
-                className="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow"
-              >
-                {links.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href as "/"} className="px-3">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <div className="drawer-side">
+                <label
+                  htmlFor="my-drawer"
+                  aria-label="close sidebar"
+                  className="drawer-overlay"
+                ></label>
+                <ul className="menu min-h-full w-32 bg-base-200 p-4 text-base-content">
+                  {links.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href as "/"} className="px-3">
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
