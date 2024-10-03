@@ -93,6 +93,35 @@ const ClientNavbar: React.FC<ClientNavbarProps> = ({
                   </button>
                 </div>
 
+                {/* Move SignIn button and User profile here */}
+                <div className="mb-6">
+                  <SignedOut>
+                    <SignInButton mode="modal">
+                      <button className="text-text-secondary hover:bg-background-level1 hover:text-text-primary w-full rounded-lg px-4 py-2 text-sm font-medium">
+                        {t("signIn")}
+                      </button>
+                    </SignInButton>
+                  </SignedOut>
+                  <SignedIn>
+                    <div className="bg-background-paper hover:bg-background-level1 flex items-center gap-2 rounded-lg p-4">
+                      <UserButton appearance={clerkAppearance} />
+                      <div>
+                        <p className="text-xs">
+                          <strong className="block font-medium">
+                            {user?.firstName} {user?.lastName}
+                          </strong>
+                          <span>{user?.primaryEmailAddress?.emailAddress}</span>
+                        </p>
+                      </div>
+                    </div>
+                    <SignOutButton>
+                      <button className="text-text-secondary hover:bg-background-level1 hover:text-text-primary mt-2 w-full rounded-lg px-4 py-2 text-sm font-medium">
+                        Logout
+                      </button>
+                    </SignOutButton>
+                  </SignedIn>
+                </div>
+
                 <ul className="mt-6 space-y-1">
                   {links.map((link) => (
                     <li key={link.href}>
@@ -113,33 +142,7 @@ const ClientNavbar: React.FC<ClientNavbarProps> = ({
                 </div>
               </div>
 
-              <div className="border-border-default sticky inset-x-0 bottom-0 border-t">
-                <SignedOut>
-                  <SignInButton mode="modal">
-                    <button className="text-text-secondary hover:bg-background-level1 hover:text-text-primary w-full rounded-lg px-4 py-2 text-sm font-medium">
-                      {t("signIn")}
-                    </button>
-                  </SignInButton>
-                </SignedOut>
-                <SignedIn>
-                  <div className="bg-background-paper hover:bg-background-level1 flex items-center gap-2 p-4">
-                    <UserButton appearance={clerkAppearance} />
-                    <div>
-                      <p className="text-xs">
-                        <strong className="block font-medium">
-                          {user?.firstName} {user?.lastName}
-                        </strong>
-                        <span>{user?.primaryEmailAddress?.emailAddress}</span>
-                      </p>
-                    </div>
-                  </div>
-                  <SignOutButton>
-                    <button className="text-text-secondary hover:bg-background-level1 hover:text-text-primary w-full rounded-lg px-4 py-2 text-sm font-medium">
-                      Logout
-                    </button>
-                  </SignOutButton>
-                </SignedIn>
-              </div>
+              {/* Remove the sticky bottom section */}
             </div>
           </div>
         </div>
