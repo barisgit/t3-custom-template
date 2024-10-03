@@ -2,6 +2,7 @@ import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { LatestPost } from "~/app/_components/Post";
+import { api, HydrateClient } from "~/trpc/server";
 
 export default async function About({
   params: { locale },
@@ -27,12 +28,16 @@ export default async function About({
   unstable_setRequestLocale(locale);
   const t = await getTranslations("about");
 
+  void api.post.getLatest.prefetch();
+
   return (
-    <div>
-      <h1 className="mb-6 text-center text-4xl font-bold text-primary">
-        {t("superAdminDashboard")}
-      </h1>
-      <LatestPost />
-    </div>
+    <HydrateClient>
+      <div>
+        <h1 className="mb-6 text-center text-4xl font-bold text-primary">
+          {t("superAdminDashboard")}
+        </h1>
+        <LatestPost />
+      </div>
+    </HydrateClient>
   );
 }
