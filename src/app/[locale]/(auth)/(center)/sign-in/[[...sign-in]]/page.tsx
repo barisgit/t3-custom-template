@@ -1,13 +1,15 @@
 import { SignIn } from "@clerk/nextjs";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { useLocale } from "next-intl";
 import { getI18nPath } from "~/utils/Helpers";
 
-export async function generateMetadata({
-  params: { locale },
-}: {
+type Props = {
   params: { locale: string };
-}) {
+};
+
+export async function generateMetadata({ params: { locale } }: Props) {
+  unstable_setRequestLocale(locale);
+
   const t = await getTranslations({
     locale,
     namespace: "SignIn",
@@ -19,14 +21,13 @@ export async function generateMetadata({
   };
 }
 
-// export const dynamic = "force-static";
-
 export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "de" }];
 }
 
-export default function SignInPage() {
-  const locale = useLocale();
+export default function SignInPage({ params: { locale } }: Props) {
+  unstable_setRequestLocale(locale);
+  const currentLocale = useLocale();
 
-  return <SignIn path={getI18nPath("/sign-in", locale)} />;
+  return <SignIn path={getI18nPath("/sign-in", currentLocale)} />;
 }

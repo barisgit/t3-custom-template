@@ -1,13 +1,15 @@
 import { SignUp } from "@clerk/nextjs";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { useLocale } from "next-intl";
 import { getI18nPath } from "~/utils/Helpers";
 
-export async function generateMetadata({
-  params: { locale },
-}: {
+type Props = {
   params: { locale: string };
-}) {
+};
+
+export async function generateMetadata({ params: { locale } }: Props) {
+  unstable_setRequestLocale(locale);
+
   const t = await getTranslations({
     locale,
     namespace: "SignUp",
@@ -19,14 +21,13 @@ export async function generateMetadata({
   };
 }
 
-// export const dynamic = "force-static";
-
 export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "de" }];
 }
 
-export default function SignUpPage() {
-  const locale = useLocale();
+export default function SignUpPage({ params: { locale } }: Props) {
+  unstable_setRequestLocale(locale);
+  const currentLocale = useLocale();
 
-  return <SignUp path={getI18nPath("/sign-up", locale)} />;
+  return <SignUp path={getI18nPath("/sign-up", currentLocale)} />;
 }
