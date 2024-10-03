@@ -154,3 +154,9 @@
     ring-color: var(--btn-focus);
   }
 }
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
