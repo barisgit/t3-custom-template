@@ -1,4 +1,5 @@
 import "~/styles/globals.css";
+import "~/styles/themes.css";
 
 import Navbar from "~/app/_components/Navbar";
 import { AuthProvider } from "~/app/_context/clerkProvider";
@@ -8,6 +9,7 @@ import { AppConfig } from "~/utils/AppConfig";
 import { Providers } from "~/app/_context/reduxProvider";
 import { TRPCReactProvider } from "~/trpc/react";
 import { type Metadata } from "next";
+import { ThemeInitializer } from "~/app/_components/ThemeInitializer";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -29,7 +31,7 @@ export default function RootLayout(props: {
   const messages = useMessages();
 
   return (
-    <html lang={props.params.locale}>
+    <html lang={props.params.locale} className="bg-background-default">
       <body>
         <Providers>
           <TRPCReactProvider>
@@ -38,6 +40,7 @@ export default function RootLayout(props: {
                 locale={props.params.locale}
                 messages={messages}
               >
+                <ThemeInitializer />
                 <Navbar />
                 {props.children}
               </NextIntlClientProvider>

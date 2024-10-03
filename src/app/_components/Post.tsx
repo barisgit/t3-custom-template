@@ -52,7 +52,7 @@ export function LatestPost() {
         {error && <p className="mt-2 text-sm text-red-500">{error}</p>}
         <button
           type="submit"
-          className="btn btn-primary"
+          className="bg-primary-default text-primary-foreground btn btn-primary"
           disabled={createPost.isPending}
         >
           {createPost.isPending ? "Creating..." : "Create Post"}
