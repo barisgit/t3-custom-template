@@ -38,11 +38,6 @@ export default function LocaleSwitcherSelect({
 
   return (
     <div className="flex flex-col items-start">
-      <span
-        className={clsx("mb-2 text-sm font-medium", isPending && "opacity-50")}
-      >
-        {label}
-      </span>
       <ul className="space-y-1">
         {React.Children.map(children, (child) => {
           if (
