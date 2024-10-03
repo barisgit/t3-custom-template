@@ -4,12 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "next build --debug",
+    "build": "next build",
     "db:generate": "prisma migrate dev",
     "db:migrate": "prisma migrate deploy",
     "db:push": "prisma db push",
     "db:studio": "prisma studio",
     "dev": "next dev",
+    "build:start": "npm install && next build && next start",
     "postinstall": "prisma generate",
     "lint": "next lint",
     "start": "next start"
@@ -50,6 +51,7 @@
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "theme-change": "^2.5.0",
+    "toad-uri-js": "^5.0.1",
     "zod": "^3.23.3"
   },
   "devDependencies": {
@@ -71,5 +73,8 @@
   "ct3aMetadata": {
     "initVersion": "7.37.0"
   },
-  "packageManager": "npm@10.8.2"
+  "packageManager": "npm@10.8.2",
+  "overrides": {
+    "uri-js": "npm:toad-uri-js@^5.0.1"
+  }
 }

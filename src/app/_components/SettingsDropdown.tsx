@@ -19,11 +19,9 @@ import {
 } from "~/components/ui/dropdown-menu";
 import ThemeSwitch from "./ThemeSwitch";
 import LocaleSwitcher from "./LocaleSwitcher";
-import { useLocale } from "next-intl";
 
 export default function SettingsDropdown() {
   const t = useTranslations("SettingsDropdown");
-  const locale = useLocale();
 
   return (
     <DropdownMenu>

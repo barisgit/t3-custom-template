@@ -22,22 +22,25 @@ const ignoredRoutes = [
   "/api/trpc(.*)",
 ];
 
-export default clerkMiddleware((auth: ClerkMiddlewareAuth, req, evt) => {
+export default clerkMiddleware((auth: ClerkMiddlewareAuth, req) => {
+  // Check for ignored routes first
   if (
     ignoredRoutes.some((route) => new RegExp(route).test(req.nextUrl.pathname))
   ) {
     return NextResponse.next();
   }
 
+  // Apply intl middleware
   const intlResponse = intlMiddleware(req);
   if (intlResponse) return intlResponse;
 
+  // Check for protected routes
   if (isProtectedRoute(req)) {
     const { userId } = auth();
-    const match = /(\/.*)\/dashboard/.exec(req.nextUrl.pathname);
-    const locale = match?.[1] ?? "";
-
-    if (userId) {
+    if (!userId) {
+      // Changed condition
+      const match = /(\/.*)\/dashboard/.exec(req.nextUrl.pathname);
+      const locale = match?.[1] ?? "";
       const signInUrl = new URL(`${locale}/sign-in`, req.url);
       signInUrl.searchParams.set("redirect_url", req.url);
       return NextResponse.redirect(signInUrl);

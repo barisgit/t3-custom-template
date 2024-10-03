@@ -6,7 +6,7 @@ import { setTheme } from "~/redux/themeSlice";
 import { useTranslations } from "next-intl";
 import { Button } from "~/components/ui/button";
 
-const ThemeSwitch: React.FC<{ size?: number }> = ({ size = 24 }) => {
+const ThemeSwitch: React.FC<{ size?: number }> = () => {
   const theme = useAppSelector((state) => state.theme.theme);
   const dispatch = useAppDispatch();
 
