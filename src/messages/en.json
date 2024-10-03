@@ -42,5 +42,21 @@
     "title": "About Us",
     "description": "This is the about page.",
     "backToHome": "Back to Home"
+  },
+  "unauthorized": {
+    "title": "Unauthorized Access",
+    "message": "You do not have permission to access this page.",
+    "returnHome": "Return to Home Page"
+  },
+  "loading": {
+    "message": "Loading"
+  },
+  "error": {
+    "title": "Error",
+    "message": "An unexpected error has occured",
+    "tryAgain": "Try again"
+  },
+  "about": {
+    "superAdminDashboard": "Super Admin Dashboard"
   }
 }
