@@ -11,8 +11,6 @@ const AppConfig = {
   locales: ["en", "de"],
   defaultLocale: "en",
   localePrefix,
-  protectedRoutes: ["/dashboard(.*)", "/:locale/dashboard(.*)"],
-  protectedAdminRoutes: ["/admin(.*)", "/:locale/admin(.*)"],
   ignoredRoutes: [
     "/api/clerk(.*)",
     "/api/stripe/webhooks(.*)",
@@ -32,6 +30,7 @@ const AppConfig = {
     {
       i18nkey: "about",
       href: "/about",
+      protected: true,
     },
     {
       i18nkey: "admin",

@@ -3,7 +3,7 @@ import { db } from "~/server/db";
 import type { Role } from "@prisma/client";
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";
-
+import type { NextRequest } from "next/server";
 export async function getUserRole(inputUserId?: string) {
   const userId = inputUserId ?? auth().userId;
   if (!userId) return null;
@@ -13,6 +13,31 @@ export async function getUserRole(inputUserId?: string) {
     select: { role: true },
   });
   return user?.role;
+}
+
+export async function getUserRoleFromApi(
+  req: NextRequest,
+  inputUserId?: string | null,
+) {
+  if (!inputUserId) return null;
+
+  try {
+    const response = await fetch(
+      `${req.nextUrl.origin}/api/get-user-role?userId=${inputUserId}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+    );
+
+    const data = (await response.json()) as { role: Role | null };
+    return data.role;
+  } catch (error) {
+    console.error("Error fetching user role:", error);
+    return null;
+  }
 }
 
 export async function hasRole(allowedRoles: Role | Role[]) {

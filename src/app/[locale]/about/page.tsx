@@ -1,17 +1,15 @@
 import { getServerTranslations } from "~/i18n/server";
-import { getUserRole, signInIfNotAuthenticated } from "~/lib/auth";
 import { LatestPost } from "~/components/Post";
 import { api, HydrateClient } from "~/trpc/server";
+import { getUserRole } from "~/lib/auth";
 
 export default async function About({
   params: { locale },
 }: {
   params: { locale: string };
 }) {
-  const userId = signInIfNotAuthenticated();
-  const role = await getUserRole(userId);
   const translations = await getServerTranslations("about", locale);
-
+  const role = await getUserRole();
   void api.post.getLatest.prefetch();
   return (
     <HydrateClient>
