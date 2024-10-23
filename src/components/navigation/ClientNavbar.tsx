@@ -11,8 +11,8 @@ import {
   useUser,
 } from "@clerk/nextjs";
 import { useTranslations } from "next-intl";
-import ThemeSwitch from "~/app/_components/ThemeSwitch";
-import LocaleSwitcher from "~/app/_components/LocaleSwitcher";
+import ThemeSwitch from "~/components/settings/ThemeSwitch";
+import LocaleSwitcher from "~/components/settings/LocaleSwitcher";
 import type { Appearance } from "~/types/global";
 
 interface ClientNavbarProps {
@@ -36,7 +36,7 @@ const ClientNavbar: React.FC<ClientNavbarProps> = ({
     <>
       {/* Mobile menu button */}
       <button
-        className="text-text-primary hover:bg-background-level1 rounded-full p-2 sm:hidden"
+        className="rounded-full p-2 text-text-primary hover:bg-background-level1 sm:hidden"
         onClick={toggleSidebar}
       >
         <svg
@@ -65,11 +65,11 @@ const ClientNavbar: React.FC<ClientNavbarProps> = ({
           ></div>
 
           {/* Sidebar */}
-          <div className="bg-background-paper fixed inset-y-0 right-0 w-64 shadow-lg transition-transform duration-300 ease-in-out">
+          <div className="fixed inset-y-0 right-0 w-64 bg-background-paper shadow-lg transition-transform duration-300 ease-in-out">
             <div className="flex h-full flex-col justify-between">
               <div className="px-4 py-6">
                 <div className="mb-4 flex items-center justify-between">
-                  <span className="bg-background-level1 text-text-secondary grid h-10 w-32 place-content-center rounded-lg text-xs">
+                  <span className="grid h-10 w-32 place-content-center rounded-lg bg-background-level1 text-xs text-text-secondary">
                     Logo
                   </span>
                   <button
@@ -97,13 +97,13 @@ const ClientNavbar: React.FC<ClientNavbarProps> = ({
                 <div className="mb-6">
                   <SignedOut>
                     <SignInButton mode="modal">
-                      <button className="text-text-secondary hover:bg-background-level1 hover:text-text-primary w-full rounded-lg px-4 py-2 text-sm font-medium">
+                      <button className="w-full rounded-lg px-4 py-2 text-sm font-medium text-text-secondary hover:bg-background-level1 hover:text-text-primary">
                         {t("signIn")}
                       </button>
                     </SignInButton>
                   </SignedOut>
                   <SignedIn>
-                    <div className="bg-background-paper hover:bg-background-level1 flex items-center gap-2 rounded-lg p-4">
+                    <div className="flex items-center gap-2 rounded-lg bg-background-paper p-4 hover:bg-background-level1">
                       <UserButton appearance={clerkAppearance} />
                       <div>
                         <p className="text-xs">
@@ -115,7 +115,7 @@ const ClientNavbar: React.FC<ClientNavbarProps> = ({
                       </div>
                     </div>
                     <SignOutButton>
-                      <button className="text-text-secondary hover:bg-background-level1 hover:text-text-primary mt-2 w-full rounded-lg px-4 py-2 text-sm font-medium">
+                      <button className="mt-2 w-full rounded-lg px-4 py-2 text-sm font-medium text-text-secondary hover:bg-background-level1 hover:text-text-primary">
                         Logout
                       </button>
                     </SignOutButton>
@@ -127,7 +127,7 @@ const ClientNavbar: React.FC<ClientNavbarProps> = ({
                     <li key={link.href}>
                       <Link
                         href={link.href as "/"}
-                        className="text-text-secondary hover:bg-background-level1 hover:text-text-primary block rounded-lg px-4 py-2 text-sm font-medium"
+                        className="block rounded-lg px-4 py-2 text-sm font-medium text-text-secondary hover:bg-background-level1 hover:text-text-primary"
                         onClick={toggleSidebar}
                       >
                         {link.label}

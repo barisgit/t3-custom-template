@@ -1,7 +1,7 @@
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-import { LatestPost } from "~/app/_components/Post";
+import { LatestPost } from "~/components/Post";
 import { api, HydrateClient } from "~/trpc/server";
 
 export default async function About({
@@ -30,7 +30,7 @@ export default async function About({
   return (
     <HydrateClient>
       <div>
-        <h1 className="text-primary mb-6 text-center text-4xl font-bold">
+        <h1 className="mb-6 text-center text-4xl font-bold text-primary">
           {t("hello", { role: user?.role })}
         </h1>
         <LatestPost />

@@ -1,7 +1,26 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage"; // Defaults to localStorage for web
-import themeReducer from "./themeSlice";
+import themeReducer from "./slices/themeSlice";
+import createWebStorage from "redux-persist/lib/storage/createWebStorage";
+
+const createNoopStorage = () => {
+  return {
+    getItem(_key: string) {
+      return Promise.resolve(null);
+    },
+    setItem(_key: string, value: string | object | number) {
+      return Promise.resolve(value);
+    },
+    removeItem(_key: string) {
+      return Promise.resolve();
+    },
+  };
+};
+
+const storage =
+  typeof window !== "undefined"
+    ? createWebStorage("local")
+    : createNoopStorage();
 
 // Persist configuration
 const persistConfig = {
@@ -13,7 +32,6 @@ const persistConfig = {
 // Combine all your reducers
 const rootReducer = combineReducers({
   theme: themeReducer,
-  // Add other reducers here
 });
 
 // Create a persisted reducer

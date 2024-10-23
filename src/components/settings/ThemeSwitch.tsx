@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "~/redux/hooks";
-import { setTheme } from "~/redux/themeSlice";
+import { setTheme } from "~/redux/slices/themeSlice";
 import { useTranslations } from "next-intl";
 import { Button } from "~/components/ui/button";
 
@@ -11,21 +10,6 @@ const ThemeSwitch: React.FC<{ size?: number }> = () => {
   const dispatch = useAppDispatch();
 
   const isDarkMode = theme === "dark";
-
-  useEffect(() => {
-    // Initialize theme based on localStorage or system preference
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme) {
-      dispatch(setTheme(storedTheme as "light" | "dark"));
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      dispatch(setTheme("dark"));
-    }
-  }, [dispatch]);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDarkMode);
-    localStorage.setItem("theme", theme);
-  }, [isDarkMode, theme]);
 
   const handleToggle = () => {
     dispatch(setTheme(isDarkMode ? "light" : "dark"));

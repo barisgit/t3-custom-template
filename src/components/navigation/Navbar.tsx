@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "~/i18n/routing";
-import SettingsDropdown from "~/app/_components/SettingsDropdown";
+import SettingsDropdown from "~/components/settings/SettingsDropdown";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import ClientNavbar from "~/app/_components/ClientNavbar";
+import ClientNavbar from "~/components/navigation/ClientNavbar";
 
 const links = [
   { href: "/", label: "Home" },
@@ -36,11 +36,11 @@ const clerkAppearance = {
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="bg-background-default dark:bg-dark-background-default shadow-elevation-1 px-4 py-2">
+    <nav className="bg-background-default px-4 py-2 shadow-elevation-1 dark:bg-dark-background-default">
       <div className="container mx-auto flex items-center">
         {/* Logo (Left column) */}
         <div className="flex-1">
-          <Link href="/" className="text-text-primary text-xl font-bold">
+          <Link href="/" className="text-xl font-bold text-text-primary">
             Logo
           </Link>
         </div>
@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
           <div className="hidden sm:flex">
             <SignedOut>
               <SignInButton mode="modal">
-                <button className="hover:bg-primary-600 bg-primary rounded px-4 py-2 text-white">
+                <button className="rounded bg-primary px-4 py-2 text-white hover:bg-primary-600">
                   Sign In
                 </button>
               </SignInButton>
