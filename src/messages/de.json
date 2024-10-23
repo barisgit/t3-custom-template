@@ -68,5 +68,10 @@
   "SignUp": {
     "meta_title": "Registrieren",
     "meta_description": "Registrieren Seite"
+  },
+  "admin": {
+    "mail": {
+      "title": "E-Mail senden"
+    }
   }
 }

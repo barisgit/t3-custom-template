@@ -16,6 +16,9 @@ export const env = createEnv({
     STRIPE_SECRET_KEY: z.string(),
     STRIPE_WEBHOOK_SECRET: z.string(),
     SUPER_ADMIN_EMAILS: z.string(),
+    MAILGUN_API_KEY: z.string(),
+    MAILGUN_DOMAIN: z.string(),
+    MAILGUN_FROM: z.string().email(),
   },
 
   /**
@@ -50,7 +53,9 @@ export const env = createEnv({
       process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
     NEXT_PUBLIC_WEBSITE_URL: process.env.NEXT_PUBLIC_WEBSITE_URL,
     SUPER_ADMIN_EMAILS: process.env.SUPER_ADMIN_EMAILS,
-
+    MAILGUN_API_KEY: process.env.MAILGUN_API_KEY,
+    MAILGUN_DOMAIN: process.env.MAILGUN_DOMAIN,
+    MAILGUN_FROM: process.env.MAILGUN_FROM,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

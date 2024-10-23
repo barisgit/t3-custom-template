@@ -2,7 +2,7 @@ import { Webhook } from "svix";
 import { headers } from "next/headers";
 import type { WebhookEvent } from "@clerk/nextjs/server";
 import { db } from "~/server/db";
-//import Stripe from "stripe";
+import Stripe from "stripe";
 
 // remember to add your_url/api/clerk/ to the clerk dashboard
 

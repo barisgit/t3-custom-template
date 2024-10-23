@@ -16,6 +16,7 @@ const AppConfig = {
     "/api/stripe/webhooks(.*)",
     "/api/trpc(.*)",
     "/api/get-user-role(.*)",
+    "/api/email(.*)",
   ],
   adminRoles: ["ADMIN", "SUPER_ADMIN"] as Role[],
   navigation: [

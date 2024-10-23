@@ -71,5 +71,10 @@
   },
   "navbar": {
     "signIn": "Sign In"
+  },
+  "admin": {
+    "mail": {
+      "title": "Send Email"
+    }
   }
 }
