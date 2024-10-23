@@ -1,7 +1,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { db } from "~/server/db";
 import type { Role } from "@prisma/client";
-import { redirect } from "next/navigation";
+import { redirect } from "~/i18n/routing";
 import { headers } from "next/headers";
 import type { NextRequest } from "next/server";
 export async function getUserRole(inputUserId?: string) {

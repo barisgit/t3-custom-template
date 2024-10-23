@@ -3,7 +3,6 @@ import type { ClerkMiddlewareAuth } from "@clerk/nextjs/server";
 import { NextResponse, type NextRequest } from "next/server";
 import createMiddleware from "next-intl/middleware";
 import { getUserRoleFromApi } from "~/lib/auth";
-import { headers } from "next/headers";
 
 import AppConfig from "~/AppConfig";
 
