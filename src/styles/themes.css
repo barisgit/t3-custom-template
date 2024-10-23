@@ -12,6 +12,7 @@
   --color-border-default: var(--color-light-border-default);
   --color-border-light: var(--color-light-border-light);
   --color-border-dark: var(--color-light-border-dark);
+  --color-border-accent: var(--color-light-border-accent);
 
   /* Error colors */
   --color-error-50: #ffebee;
@@ -24,6 +25,7 @@
   --color-error-700: #d32f2f;
   --color-error-800: #c62828;
   --color-error-900: #b71c1c;
+  --color-error-foreground: #ffffff;
 
   /* Success colors */
   --color-success-50: #e8f5e9;
@@ -36,6 +38,7 @@
   --color-success-700: #388e3c;
   --color-success-800: #2e7d32;
   --color-success-900: #1b5e20;
+  --color-success-foreground: #ffffff;
 
   /* Warning colors */
   --color-warning-50: #fff3e0;
@@ -48,7 +51,7 @@
   --color-warning-700: #f57c00;
   --color-warning-800: #ef6c00;
   --color-warning-900: #e65100;
-
+  --color-warning-foreground: #ffffff;
   /* Info colors */
   --color-info-50: #e3f2fd;
   --color-info-100: #bbdefb;
@@ -60,6 +63,7 @@
   --color-info-700: #1976d2;
   --color-info-800: #1565c0;
   --color-info-900: #0d47a1;
+  --color-info-foreground: #ffffff;
 }
 
 :root {
@@ -74,6 +78,7 @@
   --color-primary-700: #770477;
   --color-primary-800: #4f024f;
   --color-primary-900: #280128;
+  --color-primary-foreground: #ffffff;
 
   --color-secondary-50: #fff7e6;
   --color-secondary-100: #feefcd;
@@ -85,6 +90,7 @@
   --color-secondary-700: #976a02;
   --color-secondary-800: #654701;
   --color-secondary-900: #322301;
+  --color-secondary-foreground: #ffffff;
 
   --color-tertiary-50: #ffebeb;
   --color-tertiary-100: #ffd6d6;
@@ -96,6 +102,7 @@
   --color-tertiary-700: #b80000;
   --color-tertiary-800: #7a0000;
   --color-tertiary-900: #3d0000;
+  --color-tertiary-foreground: #ffffff;
 
   --color-quaternary-50: #ffefe5;
   --color-quaternary-100: #ffdfcc;
@@ -107,6 +114,7 @@
   --color-quaternary-700: #993800;
   --color-quaternary-800: #662500;
   --color-quaternary-900: #331300;
+  --color-quaternary-foreground: #ffffff;
 
   --color-light-background-default: #ffffff; /* White */
   --color-light-background-paper: #f4f3f5; /* Very light desaturated purple */
@@ -121,6 +129,7 @@
   --color-light-border-default: #a699cc; /* Less saturated medium light purple */
   --color-light-border-light: #ccc2e6; /* Less saturated very light purple */
   --color-light-border-dark: #7a66b3; /* Less saturated bright purple */
+  --color-light-border-accent: #ff56ffa0; /* Slightly muted neon magenta */
 
   --color-dark-background-default: #1e1d21; /* Very dark purple */
   --color-dark-background-paper: #2e2c32; /* Lighter desaturated dark purple */
@@ -135,6 +144,7 @@
   --color-dark-border-default: #4a3d5f; /* Less saturated medium dark purple */
   --color-dark-border-light: #5a4b70; /* Less saturated medium purple */
   --color-dark-border-dark: #3a334d; /* Less saturated dark purple */
+  --color-dark-border-accent: #00ffff; /* Neon cyan */
 }
 
 /* Dashboard theme */

@@ -19,6 +19,7 @@ export default {
           "800": "var(--color-error-800)",
           "900": "var(--color-error-900)",
           DEFAULT: "var(--color-error-500)",
+          foreground: "var(--color-error-foreground)",
         },
         warning: {
           "50": "var(--color-warning-50)",
@@ -32,6 +33,7 @@ export default {
           "800": "var(--color-warning-800)",
           "900": "var(--color-warning-900)",
           DEFAULT: "var(--color-warning-500)",
+          foreground: "var(--color-warning-foreground)",
         },
         success: {
           "50": "var(--color-success-50)",
@@ -45,6 +47,7 @@ export default {
           "800": "var(--color-success-800)",
           "900": "var(--color-success-900)",
           DEFAULT: "var(--color-success-500)",
+          foreground: "var(--color-success-foreground)",
         },
         info: {
           "50": "var(--color-info-50)",
@@ -58,6 +61,7 @@ export default {
           "800": "var(--color-info-800)",
           "900": "var(--color-info-900)",
           DEFAULT: "var(--color-info-500)",
+          foreground: "var(--color-info-foreground)",
         },
         primary: {
           "50": "var(--color-primary-50)",
@@ -71,6 +75,7 @@ export default {
           "800": "var(--color-primary-800)",
           "900": "var(--color-primary-900)",
           DEFAULT: "var(--color-primary-500)",
+          foreground: "var(--color-primary-foreground)",
         },
         secondary: {
           "50": "var(--color-secondary-50)",
@@ -84,6 +89,7 @@ export default {
           "800": "var(--color-secondary-800)",
           "900": "var(--color-secondary-900)",
           DEFAULT: "var(--color-secondary-500)",
+          foreground: "var(--color-secondary-foreground)",
         },
         tertiary: {
           "50": "var(--color-tertiary-50)",
@@ -97,6 +103,7 @@ export default {
           "800": "var(--color-tertiary-800)",
           "900": "var(--color-tertiary-900)",
           DEFAULT: "var(--color-tertiary-500)",
+          foreground: "var(--color-tertiary-foreground)",
         },
         quaternary: {
           "50": "var(--color-quaternary-50)",
@@ -110,6 +117,7 @@ export default {
           "800": "var(--color-quaternary-800)",
           "900": "var(--color-quaternary-900)",
           DEFAULT: "var(--color-quaternary-500)",
+          foreground: "var(--color-quaternary-foreground)",
         },
         background: {
           default: "var(--color-background-default)",
@@ -129,6 +137,7 @@ export default {
           default: "var(--color-border-default)",
           light: "var(--color-border-light)",
           dark: "var(--color-border-dark)",
+          accent: "var(--color-border-accent)",
         },
         light: {
           background: {
@@ -149,6 +158,7 @@ export default {
             default: "var(--color-light-border-default)",
             light: "var(--color-light-border-light)",
             dark: "var(--color-light-border-dark)",
+            accent: "var(--color-light-border-accent)",
           },
         },
         dark: {
@@ -170,6 +180,7 @@ export default {
             default: "var(--color-dark-border-default)",
             light: "var(--color-dark-border-light)",
             dark: "var(--color-dark-border-dark)",
+            accent: "var(--color-dark-border-accent)",
           },
         },
       },

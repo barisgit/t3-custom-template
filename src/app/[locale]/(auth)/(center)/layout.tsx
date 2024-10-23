@@ -15,7 +15,7 @@ export default function CenteredLayout({
   }
 
   return (
-    <div className="-mt-8 flex min-h-screen items-center justify-center sm:-mt-24">
+    <div className="flex min-h-screen items-center justify-center pt-24">
       {children}
     </div>
   );

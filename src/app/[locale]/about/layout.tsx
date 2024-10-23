@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export default function AboutLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="-mt-24 flex min-h-screen items-center justify-center">
+    <div className="flex min-h-screen items-center justify-center pt-24">
       <div>{children}</div>
     </div>
   );

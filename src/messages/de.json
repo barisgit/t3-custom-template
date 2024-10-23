@@ -12,7 +12,18 @@
     "theme": "Thema"
   },
   "home": {
-    "welcomeMessage": "Willkommen"
+    "welcomeMessage": "Willkommen bei unserer App",
+    "modal": {
+      "title": "Willkommen!",
+      "welcomeMessage": "Vielen Dank für Ihren Besuch unserer Anwendung.",
+      "description": "Wir freuen uns, dass Sie hier sind.",
+      "primaryButton": "Loslegen",
+      "secondaryButton": "Mehr erfahren",
+      "openBasic": "Basismodal öffnen",
+      "openAdvanced": "Erweitertes Modal öffnen",
+      "basicMessage": "Dies ist ein Beispiel für ein Basismodal",
+      "autoOpenMessage": "Dieses Modal öffnet sich automatisch"
+    }
   },
   "notFound": {
     "title": "Seite nicht gefunden",

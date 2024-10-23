@@ -12,7 +12,18 @@
     "theme": "Theme"
   },
   "home": {
-    "welcomeMessage": "Welcome"
+    "welcomeMessage": "Welcome to our app",
+    "modal": {
+      "title": "Welcome!",
+      "welcomeMessage": "Thank you for visiting our application.",
+      "description": "We're glad to have you here.",
+      "primaryButton": "Get Started",
+      "secondaryButton": "Learn More",
+      "openBasic": "Open Basic Modal",
+      "openAdvanced": "Open Advanced Modal",
+      "basicMessage": "This is a basic modal example",
+      "autoOpenMessage": "This modal opens automatically"
+    }
   },
   "notFound": {
     "title": "Page not found",

@@ -3,12 +3,15 @@ import { Link } from "~/i18n/routing";
 import SettingsDropdown from "~/components/settings/SettingsDropdown";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import ClientNavbar from "~/components/navigation/ClientNavbar";
+import { hasRole } from "~/lib/auth";
 
 const links = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
+
+const adminLink = { href: "/admin", label: "Admin" };
 
 const clerkAppearance = {
   elements: {
@@ -34,9 +37,12 @@ const clerkAppearance = {
   },
 };
 
-const Navbar: React.FC = () => {
+export default async function Navbar() {
+  const isAdmin = await hasRole(["ADMIN", "SUPER_ADMIN"]);
+  const allLinks = isAdmin ? [...links, adminLink] : links;
+
   return (
-    <nav className="bg-background-default px-4 py-2 shadow-elevation-1 dark:bg-dark-background-default">
+    <nav className="fixed top-0 z-40 w-full bg-background-default px-4 py-2 shadow-elevation-1 dark:bg-dark-background-default">
       <div className="container mx-auto flex items-center">
         {/* Logo (Left column) */}
         <div className="flex-1">
@@ -48,7 +54,7 @@ const Navbar: React.FC = () => {
         {/* Center links (desktop) */}
         <div className="hidden flex-1 justify-center sm:flex">
           <ul className="flex space-x-4">
-            {links.map((link) => (
+            {allLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href as "/"}
@@ -80,11 +86,9 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Client-side mobile menu */}
-          <ClientNavbar links={links} clerkAppearance={clerkAppearance} />
+          <ClientNavbar links={allLinks} clerkAppearance={clerkAppearance} />
         </div>
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}
