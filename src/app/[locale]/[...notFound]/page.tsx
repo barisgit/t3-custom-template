@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getServerTranslations, staticParams } from "~/i18n/server";
 import { Link } from "~/i18n/routing";
 
 export async function generateMetadata({
@@ -6,21 +6,18 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }) {
-  const t = await getTranslations({
-    locale,
-    namespace: "notFound",
-  });
+  const translations = await getServerTranslations("notFound", locale);
 
   return {
-    title: t("title"),
-    description: t("message"),
+    title: translations("title"),
+    description: translations("message"),
   };
 }
 
 export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "de" }];
+  return staticParams();
 }
 
 export default async function NotFound({
@@ -28,18 +25,15 @@ export default async function NotFound({
 }: {
   params: { locale: string };
 }) {
-  const t = await getTranslations({
-    locale,
-    namespace: "notFound",
-  });
+  const translations = await getServerTranslations("notFound", locale);
 
   return (
     <div className="-mt-24 flex min-h-screen flex-col items-center justify-center">
       <div className="text-center">
-        <h2 className="mb-4 text-2xl font-bold">{t("title")}</h2>
-        <p className="mb-4">{t("message")}</p>
+        <h2 className="mb-4 text-2xl font-bold">{translations("title")}</h2>
+        <p className="mb-4">{translations("message")}</p>
         <Link href="/" className="text-blue-500 hover:underline">
-          {t("returnHome")}
+          {translations("returnHome")}
         </Link>
       </div>
     </div>

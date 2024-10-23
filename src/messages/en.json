@@ -1,4 +1,10 @@
 {
+  "pages": {
+    "home": "Home",
+    "style": "Style",
+    "about": "About",
+    "admin": "Admin"
+  },
   "LocaleSwitcher": {
     "label": "Language",
     "locale": "{locale, select, en {English} de {German} other {Unknown}}"
@@ -12,7 +18,9 @@
     "theme": "Theme"
   },
   "home": {
-    "welcomeMessage": "Welcome to our app",
+    "welcomeMessage": "Welcome to our app"
+  },
+  "style": {
     "modal": {
       "title": "Welcome!",
       "welcomeMessage": "Thank you for visiting our application.",

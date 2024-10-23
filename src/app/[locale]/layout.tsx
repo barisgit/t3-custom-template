@@ -5,7 +5,7 @@ import Navbar from "~/components/navigation/Navbar";
 import { AuthProvider } from "~/context/clerkProvider";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { unstable_setRequestLocale } from "next-intl/server";
-import { AppConfig } from "~/AppConfig";
+import AppConfig from "~/AppConfig";
 import { Providers } from "~/context/reduxProvider";
 import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeInitializer } from "~/components/settings/ThemeInitializer";

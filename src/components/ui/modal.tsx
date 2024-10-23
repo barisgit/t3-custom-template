@@ -20,7 +20,7 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({
   children,
   onClose,
-  backgroundClass = "bg-background-paper",
+  backgroundClass = "bg-background-default",
   size = "md",
   closeOnEscape = true,
   showCloseButton = true,

@@ -1,4 +1,4 @@
-import { AppConfig } from "../AppConfig";
+import AppConfig from "~/AppConfig";
 
 export const getBaseUrl = () => {
   if (process.env.NEXT_PUBLIC_APP_URL) {

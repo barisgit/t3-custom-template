@@ -3,7 +3,7 @@ import type { ClerkMiddlewareAuth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import createMiddleware from "next-intl/middleware";
 
-import { AppConfig } from "./AppConfig";
+import AppConfig from "./AppConfig";
 
 const intlMiddleware = createMiddleware({
   locales: AppConfig.locales,

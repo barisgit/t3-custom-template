@@ -4,14 +4,12 @@ import SettingsDropdown from "~/components/settings/SettingsDropdown";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import ClientNavbar from "~/components/navigation/ClientNavbar";
 import { hasRole } from "~/lib/auth";
+import AppConfig from "~/AppConfig";
+import { getServerTranslations } from "~/i18n/server";
 
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
-
-const adminLink = { href: "/admin", label: "Admin" };
+export const generateStaticParams = () => {
+  return AppConfig.locales.map((locale) => ({ locale }));
+};
 
 const clerkAppearance = {
   elements: {
@@ -38,8 +36,15 @@ const clerkAppearance = {
 };
 
 export default async function Navbar() {
-  const isAdmin = await hasRole(["ADMIN", "SUPER_ADMIN"]);
-  const allLinks = isAdmin ? [...links, adminLink] : links;
+  const translations = await getServerTranslations("pages");
+  const isAdmin = await hasRole(AppConfig.adminRoles);
+
+  const allLinks = AppConfig.navigation
+    .filter((link) => !link.admin || (link.admin && isAdmin))
+    .map((link) => ({
+      href: link.href,
+      label: translations(link.i18nkey),
+    }));
 
   return (
     <nav className="fixed top-0 z-40 w-full bg-background-default px-4 py-2 shadow-elevation-1 dark:bg-dark-background-default">

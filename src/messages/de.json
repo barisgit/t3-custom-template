@@ -1,4 +1,10 @@
 {
+  "pages": {
+    "home": "Startseite",
+    "style": "Styleguide",
+    "about": "Über uns",
+    "admin": "Admin"
+  },
   "LocaleSwitcher": {
     "label": "Sprache",
     "locale": "{locale, select, en {Englisch} de {Deutsch} other {Unbekannt}}"
@@ -12,7 +18,9 @@
     "theme": "Thema"
   },
   "home": {
-    "welcomeMessage": "Willkommen bei unserer App",
+    "welcomeMessage": "Willkommen bei unserer App"
+  },
+  "style": {
     "modal": {
       "title": "Willkommen!",
       "welcomeMessage": "Vielen Dank für Ihren Besuch unserer Anwendung.",
