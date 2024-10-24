@@ -228,11 +228,17 @@ export default function EmailSchedules() {
                   <SelectValue placeholder="Select Schedule" />
                 </SelectTrigger>
                 <SelectContent>
-                  {Object.entries(CronPatterns).map(([key, value]) => (
-                    <SelectItem key={key} value={value}>
-                      {describeCronSchedule(value)}
-                    </SelectItem>
-                  ))}
+                  {Object.entries(CronPatterns)
+                    .filter(([key, value]) =>
+                      process.env.VERCEL === "1" || 1
+                        ? value.startsWith("0 0")
+                        : true,
+                    )
+                    .map(([key, value]) => (
+                      <SelectItem key={key} value={value}>
+                        {describeCronSchedule(value)}
+                      </SelectItem>
+                    ))}
                 </SelectContent>
               </Select>
 
