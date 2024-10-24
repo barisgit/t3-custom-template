@@ -16,10 +16,10 @@
     "start": "next start",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test:cron": "NODE_ENV=development tsx --env-file=.env src/scripts/test-cron.ts",
-    "test:create-schedule": "NODE_ENV=development tsx --env-file=.env src/scripts/create-test-schedule.ts",
-    "test:process-emails": "NODE_ENV=development tsx --env-file=.env src/scripts/test-email-processing.ts",
-    "test:all": "tsx src/scripts/test-all.ts"
+    "test:cron": "NODE_ENV=development tsx --env-file=.env.test src/scripts/test-cron.ts",
+    "test:process-emails": "NODE_ENV=development tsx --env-file=.env.test src/scripts/test-email-processing.ts",
+    "test:all": "tsx src/scripts/test-all.ts",
+    "simulate-cron": "NODE_ENV=development tsx --env-file=.env.test src/scripts/simulate-cron.ts"
   },
   "dependencies": {
     "@clerk/backend": "^1.13.8",
