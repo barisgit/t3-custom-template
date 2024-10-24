@@ -17,13 +17,26 @@ const preview: Preview = {
     nextjs: {
       appDirectory: true,
     },
+    backgrounds: {
+      disable: true,
+    },
+    darkMode: {
+      current: "light",
+      stylePreview: true,
+      classTarget: "html",
+      dark: { className: "dark" },
+      light: { className: "" },
+    },
+    layout: "fullscreen", // This ensures the story takes full width
   },
   decorators: [
     (Story) => (
       <Providers>
         <NextIntlClientProvider locale="en" messages={{}}>
-          <div className="min-h-screen bg-background-default p-4">
-            <Story />
+          <div className="w-full bg-background-default text-text-primary transition-colors">
+            <div className="p-4">
+              <Story />
+            </div>
           </div>
         </NextIntlClientProvider>
       </Providers>

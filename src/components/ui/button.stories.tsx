@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "./button";
+import { Button, type ButtonProps } from "./button";
 
 const meta = {
   title: "UI/Button",
@@ -116,7 +116,7 @@ export const Default: Story = {
 
 export const AllVariants: Story = {
   render: () => (
-    <div className="flex flex-wrap gap-4">
+    <div className="grid max-w-[800px] grid-cols-4 gap-2">
       <Button variant="default">Default</Button>
       <Button variant="destructive">Destructive</Button>
       <Button variant="ghost">Ghost</Button>
@@ -138,7 +138,7 @@ export const AllVariants: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div className="flex flex-wrap items-center gap-4">
+    <div className="grid max-w-[800px] grid-cols-4 items-center gap-2">
       <Button size="sm">Small</Button>
       <Button size="default">Default</Button>
       <Button size="lg">Large</Button>
@@ -156,7 +156,7 @@ export const Sizes: Story = {
 
 export const Colors: Story = {
   render: () => (
-    <div className="flex flex-wrap gap-4">
+    <div className="grid max-w-[800px] grid-cols-4 gap-2">
       <Button color="primary">Primary</Button>
       <Button color="secondary">Secondary</Button>
       <Button color="tertiary">Tertiary</Button>
@@ -178,7 +178,7 @@ export const Colors: Story = {
 
 export const States: Story = {
   render: () => (
-    <div className="flex flex-wrap gap-4">
+    <div className="grid max-w-[800px] grid-cols-4 gap-2">
       <Button>Normal</Button>
       <Button disabled>Disabled</Button>
       <Button className="opacity-70">Hover</Button>
@@ -196,20 +196,23 @@ export const States: Story = {
 
 export const VariantsWithColors: Story = {
   render: () => (
-    <div className="flex flex-col gap-4">
+    <div className="grid max-w-[800px] gap-2">
       {["default", "solid", "soft", "outlined", "outlined_simple"].map(
         (variant) => (
-          <div key={variant} className="flex flex-wrap gap-4">
-            <Button variant={variant as any} color="primary">
+          <div key={variant} className="grid grid-cols-4 gap-2">
+            <Button variant={variant as ButtonProps["variant"]} color="primary">
               Primary
             </Button>
-            <Button variant={variant as any} color="secondary">
+            <Button
+              variant={variant as ButtonProps["variant"]}
+              color="secondary"
+            >
               Secondary
             </Button>
-            <Button variant={variant as any} color="success">
+            <Button variant={variant as ButtonProps["variant"]} color="success">
               Success
             </Button>
-            <Button variant={variant as any} color="error">
+            <Button variant={variant as ButtonProps["variant"]} color="error">
               Error
             </Button>
           </div>
