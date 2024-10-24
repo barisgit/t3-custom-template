@@ -1,6 +1,7 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
 import themeReducer from "./slices/themeSlice";
+import emailReducer from "./features/emailSlice";
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 
 const createNoopStorage = () => {
@@ -32,6 +33,7 @@ const persistConfig = {
 // Combine all your reducers
 const rootReducer = combineReducers({
   theme: themeReducer,
+  email: emailReducer,
 });
 
 // Create a persisted reducer

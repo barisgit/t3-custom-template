@@ -1,48 +1,49 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "~/components/ui/button";
 import LabelTextarea from "~/components/ui/floating-label-textarea";
 import { api } from "~/trpc/react";
+import { toast } from "react-hot-toast";
+import { useAppSelector } from "~/redux/hooks";
 
 export default function MailForm() {
+  const selectedTemplate = useAppSelector(
+    (state) => state.email.selectedTemplate,
+  );
   const [formData, setFormData] = useState({
     to: "",
     subject: "",
     text: "",
     html: "",
   });
-  const [status, setStatus] = useState<{
-    type: "success" | "error" | null;
-    message: string;
-  }>({ type: null, message: "" });
+
+  // Update form when template is selected
+  useEffect(() => {
+    if (selectedTemplate) {
+      setFormData((prev) => ({
+        ...prev,
+        subject: selectedTemplate.subject,
+        text: selectedTemplate.text,
+        html: selectedTemplate.html ?? "",
+      }));
+      toast.success("Template loaded!");
+    }
+  }, [selectedTemplate]);
 
   const emailMutation = api.email.send.useMutation({
     onSuccess: () => {
-      setStatus({
-        type: "success",
-        message: "Email sent successfully!",
-      });
+      toast.success("Email sent successfully!");
       setFormData({ to: "", subject: "", text: "", html: "" });
     },
     onError: (error) => {
-      setStatus({
-        type: "error",
-        message: error.message ?? "Failed to send email",
-      });
+      toast.error(error.message ?? "Failed to send email");
     },
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus({ type: null, message: "" });
-
-    try {
-      await emailMutation.mutateAsync(formData);
-    } catch (error) {
-      // Error handling is done in onError callback
-      console.error("Error in form submission:", error);
-    }
+    await emailMutation.mutateAsync(formData);
   };
 
   return (
@@ -88,18 +89,6 @@ export default function MailForm() {
           rows={4}
         />
       </div>
-
-      {status.message && (
-        <div
-          className={`rounded-md p-4 ${
-            status.type === "success"
-              ? "bg-success-50 text-success-900"
-              : "bg-error-50 text-error-900"
-          }`}
-        >
-          {status.message}
-        </div>
-      )}
 
       <Button
         type="submit"

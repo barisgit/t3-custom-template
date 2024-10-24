@@ -55,8 +55,33 @@ model User {
     isPremium    Boolean   @default(false)
     PremiumUntil DateTime?
 
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    createdAt DateTime   @default(now())
+    updatedAt DateTime   @updatedAt
+    EmailLog  EmailLog[]
 
     @@index([id])
+}
+
+model EmailTemplate {
+    id         String   @id @default(cuid())
+    name       String
+    subject    String
+    text       String
+    html       String?
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @updatedAt
+    isArchived Boolean  @default(false)
+}
+
+model EmailLog {
+    id        String   @id @default(cuid())
+    to        String
+    subject   String
+    text      String
+    html      String?
+    status    String // success, failed
+    error     String?
+    createdAt DateTime @default(now())
+    userId    String? // optional link to who sent it
+    user      User?    @relation(fields: [userId], references: [id])
 }
