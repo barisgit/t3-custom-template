@@ -8,179 +8,327 @@ export default {
     extend: {
       colors: {
         error: {
-          "50": "var(--color-error-50)",
-          "100": "var(--color-error-100)",
-          "200": "var(--color-error-200)",
-          "300": "var(--color-error-300)",
-          "400": "var(--color-error-400)",
-          "500": "var(--color-error-500)",
-          "600": "var(--color-error-600)",
-          "700": "var(--color-error-700)",
-          "800": "var(--color-error-800)",
-          "900": "var(--color-error-900)",
-          DEFAULT: "var(--color-error-500)",
-          foreground: "var(--color-error-foreground)",
+          "50": "color-mix(in srgb, var(--color-error-50) calc(<alpha-value> * 100%), transparent)",
+          "100":
+            "color-mix(in srgb, var(--color-error-100) calc(<alpha-value> * 100%), transparent)",
+          "200":
+            "color-mix(in srgb, var(--color-error-200) calc(<alpha-value> * 100%), transparent)",
+          "300":
+            "color-mix(in srgb, var(--color-error-300) calc(<alpha-value> * 100%), transparent)",
+          "400":
+            "color-mix(in srgb, var(--color-error-400) calc(<alpha-value> * 100%), transparent)",
+          "500":
+            "color-mix(in srgb, var(--color-error-500) calc(<alpha-value> * 100%), transparent)",
+          "600":
+            "color-mix(in srgb, var(--color-error-600) calc(<alpha-value> * 100%), transparent)",
+          "700":
+            "color-mix(in srgb, var(--color-error-700) calc(<alpha-value> * 100%), transparent)",
+          "800":
+            "color-mix(in srgb, var(--color-error-800) calc(<alpha-value> * 100%), transparent)",
+          "900":
+            "color-mix(in srgb, var(--color-error-900) calc(<alpha-value> * 100%), transparent)",
+          "1000":
+            "color-mix(in srgb, var(--color-error-1000) calc(<alpha-value> * 100%), transparent)",
+          "1100":
+            "color-mix(in srgb, var(--color-error-1100) calc(<alpha-value> * 100%), transparent)",
+          "1200":
+            "color-mix(in srgb, var(--color-error-1200) calc(<alpha-value> * 100%), transparent)",
+          DEFAULT:
+            "color-mix(in srgb, var(--color-error-500) calc(<alpha-value> * 100%), transparent)",
+          foreground:
+            "color-mix(in srgb, var(--color-error-foreground) calc(<alpha-value> * 100%), transparent)",
         },
         warning: {
-          "50": "var(--color-warning-50)",
-          "100": "var(--color-warning-100)",
-          "200": "var(--color-warning-200)",
-          "300": "var(--color-warning-300)",
-          "400": "var(--color-warning-400)",
-          "500": "var(--color-warning-500)",
-          "600": "var(--color-warning-600)",
-          "700": "var(--color-warning-700)",
-          "800": "var(--color-warning-800)",
-          "900": "var(--color-warning-900)",
-          DEFAULT: "var(--color-warning-500)",
-          foreground: "var(--color-warning-foreground)",
+          "50": "color-mix(in srgb, var(--color-warning-50) calc(<alpha-value> * 100%), transparent)",
+          "100":
+            "color-mix(in srgb, var(--color-warning-100) calc(<alpha-value> * 100%), transparent)",
+          "200":
+            "color-mix(in srgb, var(--color-warning-200) calc(<alpha-value> * 100%), transparent)",
+          "300":
+            "color-mix(in srgb, var(--color-warning-300) calc(<alpha-value> * 100%), transparent)",
+          "400":
+            "color-mix(in srgb, var(--color-warning-400) calc(<alpha-value> * 100%), transparent)",
+          "500":
+            "color-mix(in srgb, var(--color-warning-500) calc(<alpha-value> * 100%), transparent)",
+          "600":
+            "color-mix(in srgb, var(--color-warning-600) calc(<alpha-value> * 100%), transparent)",
+          "700":
+            "color-mix(in srgb, var(--color-warning-700) calc(<alpha-value> * 100%), transparent)",
+          "800":
+            "color-mix(in srgb, var(--color-warning-800) calc(<alpha-value> * 100%), transparent)",
+          "900":
+            "color-mix(in srgb, var(--color-warning-900) calc(<alpha-value> * 100%), transparent)",
+          "1000":
+            "color-mix(in srgb, var(--color-warning-1000) calc(<alpha-value> * 100%), transparent)",
+          "1100":
+            "color-mix(in srgb, var(--color-warning-1100) calc(<alpha-value> * 100%), transparent)",
+          "1200":
+            "color-mix(in srgb, var(--color-warning-1200) calc(<alpha-value> * 100%), transparent)",
+          DEFAULT:
+            "color-mix(in srgb, var(--color-warning-500) calc(<alpha-value> * 100%), transparent)",
+          foreground:
+            "color-mix(in srgb, var(--color-warning-foreground) calc(<alpha-value> * 100%), transparent)",
         },
         success: {
-          "50": "var(--color-success-50)",
-          "100": "var(--color-success-100)",
-          "200": "var(--color-success-200)",
-          "300": "var(--color-success-300)",
-          "400": "var(--color-success-400)",
-          "500": "var(--color-success-500)",
-          "600": "var(--color-success-600)",
-          "700": "var(--color-success-700)",
-          "800": "var(--color-success-800)",
-          "900": "var(--color-success-900)",
-          DEFAULT: "var(--color-success-500)",
-          foreground: "var(--color-success-foreground)",
+          "50": "color-mix(in srgb, var(--color-success-50) calc(<alpha-value> * 100%), transparent)",
+          "100":
+            "color-mix(in srgb, var(--color-success-100) calc(<alpha-value> * 100%), transparent)",
+          "200":
+            "color-mix(in srgb, var(--color-success-200) calc(<alpha-value> * 100%), transparent)",
+          "300":
+            "color-mix(in srgb, var(--color-success-300) calc(<alpha-value> * 100%), transparent)",
+          "400":
+            "color-mix(in srgb, var(--color-success-400) calc(<alpha-value> * 100%), transparent)",
+          "500":
+            "color-mix(in srgb, var(--color-success-500) calc(<alpha-value> * 100%), transparent)",
+          "600":
+            "color-mix(in srgb, var(--color-success-600) calc(<alpha-value> * 100%), transparent)",
+          "700":
+            "color-mix(in srgb, var(--color-success-700) calc(<alpha-value> * 100%), transparent)",
+          "800":
+            "color-mix(in srgb, var(--color-success-800) calc(<alpha-value> * 100%), transparent)",
+          "900":
+            "color-mix(in srgb, var(--color-success-900) calc(<alpha-value> * 100%), transparent)",
+          "1000":
+            "color-mix(in srgb, var(--color-success-1000) calc(<alpha-value> * 100%), transparent)",
+          "1100":
+            "color-mix(in srgb, var(--color-success-1100) calc(<alpha-value> * 100%), transparent)",
+          "1200":
+            "color-mix(in srgb, var(--color-success-1200) calc(<alpha-value> * 100%), transparent)",
+          DEFAULT:
+            "color-mix(in srgb, var(--color-success-500) calc(<alpha-value> * 100%), transparent)",
+          foreground:
+            "color-mix(in srgb, var(--color-success-foreground) calc(<alpha-value> * 100%), transparent)",
         },
         info: {
-          "50": "var(--color-info-50)",
-          "100": "var(--color-info-100)",
-          "200": "var(--color-info-200)",
-          "300": "var(--color-info-300)",
-          "400": "var(--color-info-400)",
-          "500": "var(--color-info-500)",
-          "600": "var(--color-info-600)",
-          "700": "var(--color-info-700)",
-          "800": "var(--color-info-800)",
-          "900": "var(--color-info-900)",
-          DEFAULT: "var(--color-info-500)",
-          foreground: "var(--color-info-foreground)",
+          "50": "color-mix(in srgb, var(--color-info-50) calc(<alpha-value> * 100%), transparent)",
+          "100":
+            "color-mix(in srgb, var(--color-info-100) calc(<alpha-value> * 100%), transparent)",
+          "200":
+            "color-mix(in srgb, var(--color-info-200) calc(<alpha-value> * 100%), transparent)",
+          "300":
+            "color-mix(in srgb, var(--color-info-300) calc(<alpha-value> * 100%), transparent)",
+          "400":
+            "color-mix(in srgb, var(--color-info-400) calc(<alpha-value> * 100%), transparent)",
+          "500":
+            "color-mix(in srgb, var(--color-info-500) calc(<alpha-value> * 100%), transparent)",
+          "600":
+            "color-mix(in srgb, var(--color-info-600) calc(<alpha-value> * 100%), transparent)",
+          "700":
+            "color-mix(in srgb, var(--color-info-700) calc(<alpha-value> * 100%), transparent)",
+          "800":
+            "color-mix(in srgb, var(--color-info-800) calc(<alpha-value> * 100%), transparent)",
+          "900":
+            "color-mix(in srgb, var(--color-info-900) calc(<alpha-value> * 100%), transparent)",
+          "1000":
+            "color-mix(in srgb, var(--color-info-1000) calc(<alpha-value> * 100%), transparent)",
+          "1100":
+            "color-mix(in srgb, var(--color-info-1100) calc(<alpha-value> * 100%), transparent)",
+          "1200":
+            "color-mix(in srgb, var(--color-info-1200) calc(<alpha-value> * 100%), transparent)",
+          DEFAULT:
+            "color-mix(in srgb, var(--color-info-500) calc(<alpha-value> * 100%), transparent)",
+          foreground:
+            "color-mix(in srgb, var(--color-info-foreground) calc(<alpha-value> * 100%), transparent)",
         },
         primary: {
-          "50": "var(--color-primary-50)",
-          "100": "var(--color-primary-100)",
-          "200": "var(--color-primary-200)",
-          "300": "var(--color-primary-300)",
-          "400": "var(--color-primary-400)",
-          "500": "var(--color-primary-500)",
-          "600": "var(--color-primary-600)",
-          "700": "var(--color-primary-700)",
-          "800": "var(--color-primary-800)",
-          "900": "var(--color-primary-900)",
-          DEFAULT: "var(--color-primary-500)",
-          foreground: "var(--color-primary-foreground)",
+          "50": "color-mix(in srgb, var(--color-primary-50) calc(<alpha-value> * 100%), transparent)",
+          "100":
+            "color-mix(in srgb, var(--color-primary-100) calc(<alpha-value> * 100%), transparent)",
+          "200":
+            "color-mix(in srgb, var(--color-primary-200) calc(<alpha-value> * 100%), transparent)",
+          "300":
+            "color-mix(in srgb, var(--color-primary-300) calc(<alpha-value> * 100%), transparent)",
+          "400":
+            "color-mix(in srgb, var(--color-primary-400) calc(<alpha-value> * 100%), transparent)",
+          "500":
+            "color-mix(in srgb, var(--color-primary-500) calc(<alpha-value> * 100%), transparent)",
+          "600":
+            "color-mix(in srgb, var(--color-primary-600) calc(<alpha-value> * 100%), transparent)",
+          "700":
+            "color-mix(in srgb, var(--color-primary-700) calc(<alpha-value> * 100%), transparent)",
+          "800":
+            "color-mix(in srgb, var(--color-primary-800) calc(<alpha-value> * 100%), transparent)",
+          "900":
+            "color-mix(in srgb, var(--color-primary-900) calc(<alpha-value> * 100%), transparent)",
+          DEFAULT:
+            "color-mix(in srgb, var(--color-primary-500) calc(<alpha-value> * 100%), transparent)",
+          foreground:
+            "color-mix(in srgb, var(--color-primary-foreground) calc(<alpha-value> * 100%), transparent)",
         },
         secondary: {
-          "50": "var(--color-secondary-50)",
-          "100": "var(--color-secondary-100)",
-          "200": "var(--color-secondary-200)",
-          "300": "var(--color-secondary-300)",
-          "400": "var(--color-secondary-400)",
-          "500": "var(--color-secondary-500)",
-          "600": "var(--color-secondary-600)",
-          "700": "var(--color-secondary-700)",
-          "800": "var(--color-secondary-800)",
-          "900": "var(--color-secondary-900)",
-          DEFAULT: "var(--color-secondary-500)",
-          foreground: "var(--color-secondary-foreground)",
+          "50": "color-mix(in srgb, var(--color-secondary-50) calc(<alpha-value> * 100%), transparent)",
+          "100":
+            "color-mix(in srgb, var(--color-secondary-100) calc(<alpha-value> * 100%), transparent)",
+          "200":
+            "color-mix(in srgb, var(--color-secondary-200) calc(<alpha-value> * 100%), transparent)",
+          "300":
+            "color-mix(in srgb, var(--color-secondary-300) calc(<alpha-value> * 100%), transparent)",
+          "400":
+            "color-mix(in srgb, var(--color-secondary-400) calc(<alpha-value> * 100%), transparent)",
+          "500":
+            "color-mix(in srgb, var(--color-secondary-500) calc(<alpha-value> * 100%), transparent)",
+          "600":
+            "color-mix(in srgb, var(--color-secondary-600) calc(<alpha-value> * 100%), transparent)",
+          "700":
+            "color-mix(in srgb, var(--color-secondary-700) calc(<alpha-value> * 100%), transparent)",
+          "800":
+            "color-mix(in srgb, var(--color-secondary-800) calc(<alpha-value> * 100%), transparent)",
+          "900":
+            "color-mix(in srgb, var(--color-secondary-900) calc(<alpha-value> * 100%), transparent)",
+          DEFAULT:
+            "color-mix(in srgb, var(--color-secondary-500) calc(<alpha-value> * 100%), transparent)",
+          foreground:
+            "color-mix(in srgb, var(--color-secondary-foreground) calc(<alpha-value> * 100%), transparent)",
         },
         tertiary: {
-          "50": "var(--color-tertiary-50)",
-          "100": "var(--color-tertiary-100)",
-          "200": "var(--color-tertiary-200)",
-          "300": "var(--color-tertiary-300)",
-          "400": "var(--color-tertiary-400)",
-          "500": "var(--color-tertiary-500)",
-          "600": "var(--color-tertiary-600)",
-          "700": "var(--color-tertiary-700)",
-          "800": "var(--color-tertiary-800)",
-          "900": "var(--color-tertiary-900)",
-          DEFAULT: "var(--color-tertiary-500)",
-          foreground: "var(--color-tertiary-foreground)",
+          "50": "color-mix(in srgb, var(--color-tertiary-50) calc(<alpha-value> * 100%), transparent)",
+          "100":
+            "color-mix(in srgb, var(--color-tertiary-100) calc(<alpha-value> * 100%), transparent)",
+          "200":
+            "color-mix(in srgb, var(--color-tertiary-200) calc(<alpha-value> * 100%), transparent)",
+          "300":
+            "color-mix(in srgb, var(--color-tertiary-300) calc(<alpha-value> * 100%), transparent)",
+          "400":
+            "color-mix(in srgb, var(--color-tertiary-400) calc(<alpha-value> * 100%), transparent)",
+          "500":
+            "color-mix(in srgb, var(--color-tertiary-500) calc(<alpha-value> * 100%), transparent)",
+          "600":
+            "color-mix(in srgb, var(--color-tertiary-600) calc(<alpha-value> * 100%), transparent)",
+          "700":
+            "color-mix(in srgb, var(--color-tertiary-700) calc(<alpha-value> * 100%), transparent)",
+          "800":
+            "color-mix(in srgb, var(--color-tertiary-800) calc(<alpha-value> * 100%), transparent)",
+          "900":
+            "color-mix(in srgb, var(--color-tertiary-900) calc(<alpha-value> * 100%), transparent)",
+          DEFAULT:
+            "color-mix(in srgb, var(--color-tertiary-500) calc(<alpha-value> * 100%), transparent)",
+          foreground:
+            "color-mix(in srgb, var(--color-tertiary-foreground) calc(<alpha-value> * 100%), transparent)",
         },
         quaternary: {
-          "50": "var(--color-quaternary-50)",
-          "100": "var(--color-quaternary-100)",
-          "200": "var(--color-quaternary-200)",
-          "300": "var(--color-quaternary-300)",
-          "400": "var(--color-quaternary-400)",
-          "500": "var(--color-quaternary-500)",
-          "600": "var(--color-quaternary-600)",
-          "700": "var(--color-quaternary-700)",
-          "800": "var(--color-quaternary-800)",
-          "900": "var(--color-quaternary-900)",
-          DEFAULT: "var(--color-quaternary-500)",
-          foreground: "var(--color-quaternary-foreground)",
+          "50": "color-mix(in srgb, var(--color-quaternary-50) calc(<alpha-value> * 100%), transparent)",
+          "100":
+            "color-mix(in srgb, var(--color-quaternary-100) calc(<alpha-value> * 100%), transparent)",
+          "200":
+            "color-mix(in srgb, var(--color-quaternary-200) calc(<alpha-value> * 100%), transparent)",
+          "300":
+            "color-mix(in srgb, var(--color-quaternary-300) calc(<alpha-value> * 100%), transparent)",
+          "400":
+            "color-mix(in srgb, var(--color-quaternary-400) calc(<alpha-value> * 100%), transparent)",
+          "500":
+            "color-mix(in srgb, var(--color-quaternary-500) calc(<alpha-value> * 100%), transparent)",
+          "600":
+            "color-mix(in srgb, var(--color-quaternary-600) calc(<alpha-value> * 100%), transparent)",
+          "700":
+            "color-mix(in srgb, var(--color-quaternary-700) calc(<alpha-value> * 100%), transparent)",
+          "800":
+            "color-mix(in srgb, var(--color-quaternary-800) calc(<alpha-value> * 100%), transparent)",
+          "900":
+            "color-mix(in srgb, var(--color-quaternary-900) calc(<alpha-value> * 100%), transparent)",
+          DEFAULT:
+            "color-mix(in srgb, var(--color-quaternary-500) calc(<alpha-value> * 100%), transparent)",
+          foreground:
+            "color-mix(in srgb, var(--color-quaternary-foreground) calc(<alpha-value> * 100%), transparent)",
         },
         background: {
-          default: "var(--color-background-default)",
-          paper: "var(--color-background-paper)",
-          level1: "var(--color-background-level1)",
-          level2: "var(--color-background-level2)",
-          level3: "var(--color-background-level3)",
-          light: "var(--color-background-light)",
-          dark: "var(--color-background-dark)",
+          default:
+            "color-mix(in srgb, var(--color-background-default) calc(<alpha-value> * 100%), transparent)",
+          paper:
+            "color-mix(in srgb, var(--color-background-paper) calc(<alpha-value> * 100%), transparent)",
+          level1:
+            "color-mix(in srgb, var(--color-background-level1) calc(<alpha-value> * 100%), transparent)",
+          level2:
+            "color-mix(in srgb, var(--color-background-level2) calc(<alpha-value> * 100%), transparent)",
+          level3:
+            "color-mix(in srgb, var(--color-background-level3) calc(<alpha-value> * 100%), transparent)",
+          light:
+            "color-mix(in srgb, var(--color-background-light) calc(<alpha-value> * 100%), transparent)",
+          dark: "color-mix(in srgb, var(--color-background-dark) calc(<alpha-value> * 100%), transparent)",
         },
         text: {
-          primary: "var(--color-text-primary)",
-          secondary: "var(--color-text-secondary)",
-          accent: "var(--color-text-accent)",
+          primary:
+            "color-mix(in srgb, var(--color-text-primary) calc(<alpha-value> * 100%), transparent)",
+          secondary:
+            "color-mix(in srgb, var(--color-text-secondary) calc(<alpha-value> * 100%), transparent)",
+          accent:
+            "color-mix(in srgb, var(--color-text-accent) calc(<alpha-value> * 100%), transparent)",
         },
         border: {
-          default: "var(--color-border-default)",
-          light: "var(--color-border-light)",
-          dark: "var(--color-border-dark)",
-          accent: "var(--color-border-accent)",
+          default:
+            "color-mix(in srgb, var(--color-border-default) calc(<alpha-value> * 100%), transparent)",
+          light:
+            "color-mix(in srgb, var(--color-border-light) calc(<alpha-value> * 100%), transparent)",
+          dark: "color-mix(in srgb, var(--color-border-dark) calc(<alpha-value> * 100%), transparent)",
+          accent:
+            "color-mix(in srgb, var(--color-border-accent) calc(<alpha-value> * 100%), transparent)",
         },
         light: {
           background: {
-            default: "var(--color-light-background-default)",
-            paper: "var(--color-light-background-paper)",
-            level1: "var(--color-light-background-level1)",
-            level2: "var(--color-light-background-level2)",
-            level3: "var(--color-light-background-level3)",
-            light: "var(--color-light-background-light)",
-            dark: "var(--color-light-background-dark)",
+            default:
+              "color-mix(in srgb, var(--color-light-background-default) calc(<alpha-value> * 100%), transparent)",
+            paper:
+              "color-mix(in srgb, var(--color-light-background-paper) calc(<alpha-value> * 100%), transparent)",
+            level1:
+              "color-mix(in srgb, var(--color-light-background-level1) calc(<alpha-value> * 100%), transparent)",
+            level2:
+              "color-mix(in srgb, var(--color-light-background-level2) calc(<alpha-value> * 100%), transparent)",
+            level3:
+              "color-mix(in srgb, var(--color-light-background-level3) calc(<alpha-value> * 100%), transparent)",
+            light:
+              "color-mix(in srgb, var(--color-light-background-light) calc(<alpha-value> * 100%), transparent)",
+            dark: "color-mix(in srgb, var(--color-light-background-dark) calc(<alpha-value> * 100%), transparent)",
           },
           text: {
-            primary: "var(--color-light-text-primary)",
-            secondary: "var(--color-light-text-secondary)",
-            accent: "var(--color-light-text-accent)",
+            primary:
+              "color-mix(in srgb, var(--color-light-text-primary) calc(<alpha-value> * 100%), transparent)",
+            secondary:
+              "color-mix(in srgb, var(--color-light-text-secondary) calc(<alpha-value> * 100%), transparent)",
+            accent:
+              "color-mix(in srgb, var(--color-light-text-accent) calc(<alpha-value> * 100%), transparent)",
           },
           border: {
-            default: "var(--color-light-border-default)",
-            light: "var(--color-light-border-light)",
-            dark: "var(--color-light-border-dark)",
-            accent: "var(--color-light-border-accent)",
+            default:
+              "color-mix(in srgb, var(--color-light-border-default) calc(<alpha-value> * 100%), transparent)",
+            light:
+              "color-mix(in srgb, var(--color-light-border-light) calc(<alpha-value> * 100%), transparent)",
+            dark: "color-mix(in srgb, var(--color-light-border-dark) calc(<alpha-value> * 100%), transparent)",
+            accent:
+              "color-mix(in srgb, var(--color-light-border-accent) calc(<alpha-value> * 100%), transparent)",
           },
         },
         dark: {
           background: {
-            default: "var(--color-dark-background-default)",
-            paper: "var(--color-dark-background-paper)",
-            level1: "var(--color-dark-background-level1)",
-            level2: "var(--color-dark-background-level2)",
-            level3: "var(--color-dark-background-level3)",
-            light: "var(--color-dark-background-light)",
-            dark: "var(--color-dark-background-dark)",
+            default:
+              "color-mix(in srgb, var(--color-dark-background-default) calc(<alpha-value> * 100%), transparent)",
+            paper:
+              "color-mix(in srgb, var(--color-dark-background-paper) calc(<alpha-value> * 100%), transparent)",
+            level1:
+              "color-mix(in srgb, var(--color-dark-background-level1) calc(<alpha-value> * 100%), transparent)",
+            level2:
+              "color-mix(in srgb, var(--color-dark-background-level2) calc(<alpha-value> * 100%), transparent)",
+            level3:
+              "color-mix(in srgb, var(--color-dark-background-level3) calc(<alpha-value> * 100%), transparent)",
+            light:
+              "color-mix(in srgb, var(--color-dark-background-light) calc(<alpha-value> * 100%), transparent)",
+            dark: "color-mix(in srgb, var(--color-dark-background-dark) calc(<alpha-value> * 100%), transparent)",
           },
           text: {
-            primary: "var(--color-dark-text-primary)",
-            secondary: "var(--color-dark-text-secondary)",
-            accent: "var(--color-dark-text-accent)",
+            primary:
+              "color-mix(in srgb, var(--color-dark-text-primary) calc(<alpha-value> * 100%), transparent)",
+            secondary:
+              "color-mix(in srgb, var(--color-dark-text-secondary) calc(<alpha-value> * 100%), transparent)",
+            accent:
+              "color-mix(in srgb, var(--color-dark-text-accent) calc(<alpha-value> * 100%), transparent)",
           },
           border: {
-            default: "var(--color-dark-border-default)",
-            light: "var(--color-dark-border-light)",
-            dark: "var(--color-dark-border-dark)",
-            accent: "var(--color-dark-border-accent)",
+            default:
+              "color-mix(in srgb, var(--color-dark-border-default) calc(<alpha-value> * 100%), transparent)",
+            light:
+              "color-mix(in srgb, var(--color-dark-border-light) calc(<alpha-value> * 100%), transparent)",
+            dark: "color-mix(in srgb, var(--color-dark-border-dark) calc(<alpha-value> * 100%), transparent)",
+            accent:
+              "color-mix(in srgb, var(--color-dark-border-accent) calc(<alpha-value> * 100%), transparent)",
           },
         },
       },
@@ -207,6 +355,20 @@ export default {
         "elevation-4":
           "0 15px 25px rgba(0,0,0,0.15), 0 5px 10px rgba(0,0,0,0.05)",
         "elevation-5": "0 20px 40px rgba(0,0,0,0.2)",
+      },
+      keyframes: {
+        enter: {
+          "0%": { transform: "scale(0.9)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
+        leave: {
+          "0%": { transform: "scale(1)", opacity: "1" },
+          "100%": { transform: "scale(0.9)", opacity: "0" },
+        },
+      },
+      animation: {
+        enter: "enter 200ms ease-out",
+        leave: "leave 150ms ease-in forwards",
       },
     },
   },

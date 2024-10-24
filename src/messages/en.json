@@ -31,6 +31,27 @@
       "openAdvanced": "Open Advanced Modal",
       "basicMessage": "This is a basic modal example",
       "autoOpenMessage": "This modal opens automatically"
+    },
+    "toast": {
+      "defaultMessage": "This is a default notification",
+      "successMessage": "Operation completed successfully!",
+      "warningMessage": "Please proceed with caution",
+      "errorMessage": "An error has occurred",
+      "loadingMessage": "Processing your request...",
+      "loadingCompleteMessage": "Request completed successfully!",
+      "showDefault": "Show Default Toast",
+      "showSuccess": "Show Success Toast",
+      "showWarning": "Show Warning Toast",
+      "showError": "Show Error Toast",
+      "showLoading": "Show Loading Toast",
+      "customToast": {
+        "title": "Custom Notification",
+        "message": "This is a custom styled notification with your theme colors",
+        "successTitle": "Success!",
+        "successMessage": "Your action was completed successfully"
+      },
+      "showCustom": "Show Custom Toast",
+      "showCustomSuccess": "Show Custom Success Toast"
     }
   },
   "notFound": {

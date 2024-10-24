@@ -10,6 +10,8 @@ import { Providers } from "~/context/reduxProvider";
 import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeInitializer } from "~/components/settings/ThemeInitializer";
 import { type Metadata } from "next";
+// import { Toaster } from "~/components/ui/toaster";
+import { ToastProvider } from "~/context/toastProvider";
 
 export const metadata: Metadata = {
   title: AppConfig.website_name,
@@ -43,6 +45,7 @@ export default function RootLayout(props: {
                 locale={props.params.locale}
                 messages={messages}
               >
+                <ToastProvider />
                 <ThemeInitializer />
                 <Navbar />
                 {props.children}

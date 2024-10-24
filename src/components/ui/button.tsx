@@ -10,18 +10,18 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-[var(--btn-color)] text-[var(--btn-text)] hover:bg-[var(--btn-hover)] hover:border-[var(--btn-hover)] hover:text-[var(--btn-text-hover)] active:bg-[var(--btn-active)] active:border-[var(--btn-active)] active:text-[var(--btn-text-active)]",
+          "bg-primary-500 text-primary-50 hover:bg-primary-600 hover:text-primary-50 active:bg-primary-700 active:text-primary-50",
         destructive:
-          "bg-error text-error-foreground hover:opacity-80 active:saturate-50",
-        ghost: "hover:text-[var(--btn-color)] active:text-[var(--btn-active)]",
-        link: "text-primary underline-offset-4 hover:underline",
+          "bg-error-500 text-error-50 hover:bg-error-600 hover:text-error-50 active:bg-error-700",
+        ghost: "hover:text-primary-500 active:text-primary-700",
+        link: "text-primary-500 underline-offset-4 hover:underline",
         solid:
-          "bg-[var(--btn-color)] text-[var(--btn-text)] border border-[var(--btn-color)] hover:bg-[var(--btn-hover)] hover:border-[var(--btn-hover)] hover:text-[var(--btn-text-hover)] active:bg-[var(--btn-active)] active:border-[var(--btn-active)] active:text-[var(--btn-text-active)]",
-        soft: "bg-[color-mix(in_srgb,var(--btn-color)_15%,transparent)] text-[var(--btn-color)] border border-transparent hover:bg-[color-mix(in_srgb,var(--btn-hover)_25%,transparent)] hover:text-[var(--btn-hover)] active:bg-[color-mix(in_srgb,var(--btn-active)_30%,transparent)] active:text-[var(--btn-active)]",
+          "bg-primary-500 text-primary-50 border border-primary-500 hover:bg-primary-600 hover:border-primary-600 hover:text-primary-50 active:bg-primary-700 active:border-primary-700 active:text-primary-50",
+        soft: "bg-primary-500/15 text-primary-500 border border-transparent hover:bg-primary-600/25 hover:text-primary-600 active:bg-primary-700/30 active:text-primary-700",
         outlined_simple:
-          "border border-border-default hover:border-[var(--btn-color)] hover:text-[var(--btn-color)] active:saturate-50 disabled:opacity-50",
+          "border border-border-default hover:border-primary-500 hover:text-primary-500 active:saturate-50 disabled:opacity-50",
         outlined:
-          "bg-transparent text-[var(--btn-color)] border border-[var(--btn-color)] hover:bg-[color-mix(in_srgb,var(--btn-color)_15%,transparent)] hover:border-[var(--btn-hover)] hover:text-[var(--btn-hover)] active:bg-[color-mix(in_srgb,var(--btn-color)_20%,transparent)] active:border-[var(--btn-active)] active:text-[var(--btn-active)]",
+          "bg-transparent text-primary-500 border border-primary-500 hover:bg-primary-500/15 hover:border-primary-600 hover:text-primary-600 active:bg-primary-500/20 active:border-primary-700 active:text-primary-700",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -31,22 +31,21 @@ const buttonVariants = cva(
       },
       color: {
         accent:
-          "[--btn-color:var(--color-border-accent)] [--btn-hover:var(--color-border-accent)] [--btn-active:var(--color-border-accent)] [--btn-focus:var(--color-border-accent)] [--btn-text:var(--color-text-accent)] [--btn-text-hover:var(--color-text-accent)] [--btn-text-active:var(--color-text-accent)]",
-        primary:
-          "[--btn-color:var(--color-primary-500)] [--btn-hover:var(--color-primary-600)] [--btn-active:var(--color-primary-700)] [--btn-focus:var(--color-primary-300)] [--btn-text:#ffffff] [--btn-text-hover:#ffffff] [--btn-text-active:#ffffff]",
+          "text-accent border-accent hover:text-accent/90 hover:border-accent/90",
+        primary: "", // Default styling
         secondary:
-          "[--btn-color:var(--color-secondary-500)] [--btn-hover:var(--color-secondary-600)] [--btn-active:var(--color-secondary-700)] [--btn-focus:var(--color-secondary-300)] [--btn-text:#ffffff] [--btn-text-hover:#ffffff] [--btn-text-active:#ffffff]",
+          "[&]:!bg-secondary-500 [&]:!text-secondary-50 [&]:!border-secondary-500 hover:[&]:!bg-secondary-600 hover:[&]:!border-secondary-600 active:[&]:!bg-secondary-700 active:[&]:!border-secondary-700",
         tertiary:
-          "[--btn-color:var(--color-tertiary-500)] [--btn-hover:var(--color-tertiary-600)] [--btn-active:var(--color-tertiary-700)] [--btn-focus:var(--color-tertiary-300)] [--btn-text:#ffffff] [--btn-text-hover:#ffffff] [--btn-text-active:#ffffff]",
+          "[&]:!bg-tertiary-500 [&]:!text-tertiary-50 [&]:!border-tertiary-500 hover:[&]:!bg-tertiary-600 hover:[&]:!border-tertiary-600 active:[&]:!bg-tertiary-700 active:[&]:!border-tertiary-700",
         quaternary:
-          "[--btn-color:var(--color-quaternary-500)] [--btn-hover:var(--color-quaternary-600)] [--btn-active:var(--color-quaternary-700)] [--btn-focus:var(--color-quaternary-300)] [--btn-text:#ffffff] [--btn-text-hover:#ffffff] [--btn-text-active:#ffffff]",
+          "[&]:!bg-quaternary-500 [&]:!text-quaternary-50 [&]:!border-quaternary-500 hover:[&]:!bg-quaternary-600 hover:[&]:!border-quaternary-600 active:[&]:!bg-quaternary-700 active:[&]:!border-quaternary-700",
         warning:
-          "[--btn-color:var(--color-warning-500)] [--btn-hover:var(--color-warning-600)] [--btn-active:var(--color-warning-700)] [--btn-focus:var(--color-warning-300)] [--btn-text:var(--color-warning-50)] [--btn-text-hover:var(--color-warning-50)] [--btn-text-active:var(--color-warning-100)]",
+          "[&]:!bg-warning-500 [&]:!text-warning-50 [&]:!border-warning-500 hover:[&]:!bg-warning-600 hover:[&]:!border-warning-600 active:[&]:!bg-warning-700 active:[&]:!border-warning-700",
         success:
-          "[--btn-color:var(--color-success-500)] [--btn-hover:var(--color-success-600)] [--btn-active:var(--color-success-700)] [--btn-focus:var(--color-success-300)] [--btn-text:var(--color-success-50)] [--btn-text-hover:var(--color-success-50)] [--btn-text-active:var(--color-success-100)]",
-        info: "[--btn-color:var(--color-info-500)] [--btn-hover:var(--color-info-600)] [--btn-active:var(--color-info-700)] [--btn-focus:var(--color-info-300)] [--btn-text:var(--color-info-50)] [--btn-text-hover:var(--color-info-50)] [--btn-text-active:var(--color-info-100)]",
+          "[&]:!bg-success-500 [&]:!text-success-50 [&]:!border-success-500 hover:[&]:!bg-success-600 hover:[&]:!border-success-600 active:[&]:!bg-success-700 active:[&]:!border-success-700",
+        info: "[&]:!bg-info-500 [&]:!text-info-50 [&]:!border-info-500 hover:[&]:!bg-info-600 hover:[&]:!border-info-600 active:[&]:!bg-info-700 active:[&]:!border-info-700",
         error:
-          "[--btn-color:var(--color-error-500)] [--btn-hover:var(--color-error-600)] [--btn-active:var(--color-error-700)] [--btn-focus:var(--color-error-300)] [--btn-text:var(--color-error-50)] [--btn-text-hover:var(--color-error-50)] [--btn-text-active:var(--color-error-100)]",
+          "[&]:!bg-error-500 [&]:!text-error-50 [&]:!border-error-500 hover:[&]:!bg-error-600 hover:[&]:!border-error-600 active:[&]:!bg-error-700 active:[&]:!border-error-700",
       },
     },
     defaultVariants: {

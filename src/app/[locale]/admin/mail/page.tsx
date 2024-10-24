@@ -1,5 +1,9 @@
-import { getServerTranslations } from "~/i18n/server";
+import { getServerTranslations, staticParams } from "~/i18n/server";
 import MailForm from "./MailForm";
+
+export function generateStaticParams() {
+  return staticParams();
+}
 
 export default async function MailPage({
   params: { locale },

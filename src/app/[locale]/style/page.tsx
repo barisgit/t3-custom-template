@@ -1,6 +1,7 @@
 import ServerModal from "~/components/modals/ServerModal";
 import { Button } from "~/components/ui/button";
 import { getServerTranslations, staticParams } from "~/i18n/server";
+import { ToastDemo } from "~/components/ToastDemoHotToasts";
 
 export const generateStaticParams = () => {
   return staticParams();
@@ -58,6 +59,11 @@ export default async function StylePage({
         <ServerModal defaultOpen={true} size="sm">
           <p className="text-center">{translations("modal.autoOpenMessage")}</p>
         </ServerModal>
+
+        {/* Toast Section */}
+        <div className="flex flex-row gap-4 text-center">
+          <ToastDemo />
+        </div>
       </div>
     </div>
   );
