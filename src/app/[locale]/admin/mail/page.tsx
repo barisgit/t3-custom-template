@@ -5,6 +5,8 @@ import { useTranslations } from "next-intl";
 import MailForm from "./MailForm";
 import EmailTemplates from "./EmailTemplates";
 import EmailLogs from "./EmailLogs";
+import EmailGroups from "./EmailGroups";
+import EmailSchedules from "./EmailSchedules";
 import { useState } from "react";
 
 export default function MailPage() {
@@ -19,6 +21,8 @@ export default function MailPage() {
         <TabsList>
           <TabsTrigger value="send">Send Email</TabsTrigger>
           <TabsTrigger value="templates">Templates</TabsTrigger>
+          <TabsTrigger value="groups">Groups</TabsTrigger>
+          <TabsTrigger value="schedules">Schedules</TabsTrigger>
           <TabsTrigger value="logs">Logs</TabsTrigger>
         </TabsList>
 
@@ -28,6 +32,14 @@ export default function MailPage() {
 
         <TabsContent value="templates">
           <EmailTemplates onUseTemplate={() => setActiveTab("send")} />
+        </TabsContent>
+
+        <TabsContent value="groups">
+          <EmailGroups />
+        </TabsContent>
+
+        <TabsContent value="schedules">
+          <EmailSchedules />
         </TabsContent>
 
         <TabsContent value="logs">

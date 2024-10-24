@@ -17,6 +17,9 @@ const AppConfig = {
     "/api/trpc(.*)",
     "/api/get-user-role(.*)",
     "/api/email(.*)",
+    "/api/cron(.*)",
+    "/api/cron/emails(.*)",
+    "/api/create-user(.*)",
   ],
   adminRoles: ["ADMIN", "SUPER_ADMIN"] as Role[],
   navigation: [

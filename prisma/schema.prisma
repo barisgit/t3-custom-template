@@ -62,26 +62,72 @@ model User {
     @@index([id])
 }
 
+model EmailGroup {
+    id          String          @id @default(cuid())
+    name        String
+    description String?
+    members     String[] // Array of email addresses
+    createdAt   DateTime        @default(now())
+    updatedAt   DateTime        @updatedAt
+    isArchived  Boolean         @default(false)
+    schedules   EmailSchedule[]
+}
+
+model EmailSchedule {
+    id             String        @id @default(cuid())
+    name           String
+    description    String?
+    templateId     String
+    template       EmailTemplate @relation(fields: [templateId], references: [id])
+    groupId        String?
+    group          EmailGroup?   @relation(fields: [groupId], references: [id])
+    cronExpression String // e.g., "0 9 * * *" for daily at 9 AM
+    isActive       Boolean       @default(true)
+    lastRun        DateTime?
+    nextRun        DateTime?
+    createdAt      DateTime      @default(now())
+    updatedAt      DateTime      @updatedAt
+    logs           EmailLog[] // Add this relation
+    error          String?
+}
+
+model IncomingEmail {
+    id          String   @id @default(cuid())
+    from        String
+    to          String
+    subject     String
+    text        String?
+    html        String?
+    headers     Json? // Store full email headers
+    attachments Json? // Store attachment metadata
+    receivedAt  DateTime @default(now())
+    status      String // processed, pending, error
+    error       String?
+}
+
 model EmailTemplate {
-    id         String   @id @default(cuid())
+    id         String          @id @default(cuid())
     name       String
     subject    String
     text       String
     html       String?
-    createdAt  DateTime @default(now())
-    updatedAt  DateTime @updatedAt
-    isArchived Boolean  @default(false)
+    createdAt  DateTime        @default(now())
+    updatedAt  DateTime        @updatedAt
+    isArchived Boolean         @default(false)
+    schedules  EmailSchedule[]
 }
 
 model EmailLog {
-    id        String   @id @default(cuid())
-    to        String
-    subject   String
-    text      String
-    html      String?
-    status    String // success, failed
-    error     String?
-    createdAt DateTime @default(now())
-    userId    String? // optional link to who sent it
-    user      User?    @relation(fields: [userId], references: [id])
+    id         String         @id @default(cuid())
+    to         String
+    subject    String
+    text       String
+    html       String?
+    status     String // success, failed
+    error      String?
+    createdAt  DateTime       @default(now())
+    userId     String? // optional link to who sent it
+    user       User?          @relation(fields: [userId], references: [id])
+    scheduleId String? // Add this field
+    schedule   EmailSchedule? @relation(fields: [scheduleId], references: [id]) // Add this relation
 }

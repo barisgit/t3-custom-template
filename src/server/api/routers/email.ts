@@ -1,3 +1,4 @@
+import { Upload } from "lucide-react";
 import { z } from "zod";
 import { createTRPCRouter, protectedProcedureRole } from "~/server/api/trpc";
 import { sendEmail } from "~/utils/mailgun";
@@ -55,6 +56,13 @@ export const emailRouter = createTRPCRouter({
     .input(emailTemplateSchema)
     .mutation(({ ctx, input }) => {
       return ctx.db.emailTemplate.create({ data: input });
+    }),
+
+  updateTemplate: protectedProcedureRole(["ADMIN", "SUPER_ADMIN"])
+    .input(emailTemplateSchema.extend({ id: z.string() }))
+    .mutation(({ ctx, input }) => {
+      const { id, ...data } = input;
+      return ctx.db.emailTemplate.update({ where: { id }, data });
     }),
 
   deleteTemplate: protectedProcedureRole(["ADMIN", "SUPER_ADMIN"])

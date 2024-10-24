@@ -19,6 +19,9 @@ export const env = createEnv({
     MAILGUN_API_KEY: z.string(),
     MAILGUN_DOMAIN: z.string(),
     MAILGUN_FROM: z.string().email(),
+    MAILGUN_WEBHOOK_SIGNING_KEY: z.string(),
+    MAILGUN_INBOUND_DOMAIN: z.string(),
+    CRON_SECRET: z.string().min(1),
   },
 
   /**
@@ -56,6 +59,9 @@ export const env = createEnv({
     MAILGUN_API_KEY: process.env.MAILGUN_API_KEY,
     MAILGUN_DOMAIN: process.env.MAILGUN_DOMAIN,
     MAILGUN_FROM: process.env.MAILGUN_FROM,
+    MAILGUN_WEBHOOK_SIGNING_KEY: process.env.MAILGUN_WEBHOOK_SIGNING_KEY,
+    MAILGUN_INBOUND_DOMAIN: process.env.MAILGUN_INBOUND_DOMAIN,
+    CRON_SECRET: process.env.CRON_SECRET,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**
